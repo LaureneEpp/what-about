@@ -1,6 +1,12 @@
-<%= simple_form_for @post do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
+<%= simple_form_for @post, html: { class: "post_form" } do |f| %>
+  <% if post.errors.any? %>
+    <div class="error-message">
+      <%= post.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= f.input :title, input_html: { autofocus: true } %>
+  <%= f.input :content, input_html: { autofocus: true } %>
   <%= f.collection_check_boxes :category_id, Category.all, :id, :name %>
-  <%= f.button :submit %>
+  <%= f.submit class: "btn btn--secondary" %>
 <% end %>
