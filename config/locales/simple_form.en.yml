@@ -10,6 +10,17 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    placeholders:
+      post:
+        title: Title of your post
+    labels:
+      post:
+        title: Title
+    helpers:
+      submit:
+        post:
+          create: Create post
+          update: Update pots
     # Examples
     # labels:
     #   defaults:

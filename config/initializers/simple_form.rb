@@ -53,6 +53,8 @@ SimpleForm.setup do |config|
 
     ## Inputs
     # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :label, class: "visually-hidden"
+    b.use :input, class: "form__input", error_class: "form__input--invalid"
     b.use :label_input
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
@@ -117,7 +119,7 @@ SimpleForm.setup do |config|
   # config.default_form_class = nil
 
   # You can define which elements should obtain additional classes
-  # config.generate_additional_classes_for = [:wrapper, :label, :input]
+  config.generate_additional_classes_for = []
 
   # Whether attributes are required by default (or not). Default is true.
   # config.required_by_default = true

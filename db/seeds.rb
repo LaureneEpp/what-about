@@ -7,7 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 #Clean up 
-
 Category.delete_all
 
 puts 'Categories deleted'
@@ -18,3 +17,7 @@ Category.create(name:'Retail')
 Category.create(name:'Architeture')
 
 puts "Categories created"
+
+puts "\n== Seeding the database with fixtures =="
+system("bin/rails db:fixtures:load")
+
