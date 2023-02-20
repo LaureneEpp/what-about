@@ -1,5 +1,6 @@
 <%= simple_form_for @post do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
+  <%= f.collection_check_boxes :category_id, Category.all, :id, :name %>
   <%= f.button :submit %>
 <% end %>
