@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_20_133348) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_20_134313) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_133348) do
     t.string "publisher"
     t.datetime "published_at"
     t.bigint "category_id"
+    t.text "content"
     t.index ["category_id"], name: "index_posts_on_category_id"
   end
 
