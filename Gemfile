@@ -36,6 +36,8 @@ gem "redis", "~> 4.0"
 # Use simple form
 gem 'simple_form'
 
+gem 'friendly_id', '~> 5.4.0'
+
 # Use authorisation gems
 gem 'devise'
 gem 'cancancan'
