@@ -8,16 +8,24 @@
 
 #Clean up 
 Category.delete_all
+User.delete_all
 
 puts 'Categories deleted'
+puts 'Users deleted'
 
-Category.create(name:'What is new?')
-Category.create(name:'Lifestyle')
-Category.create(name:'Retail')
-Category.create(name:'Architeture')
+#Seeding
+# User.create!(first_name: "Test01", last_name: "Test01", username: "Test01", email: "test01@test.org", password: "password")
+# User.create(username: "Test02", email: "test02@test.org")
+# User.create(username: "Test03", email: "test03@test.org")
 
-puts "Categories created"
+# puts "Users created"
+
+# Category.create(name:'What is new?')
+# Category.create(name:'Lifestyle')
+# Category.create(name:'Retail')
+# Category.create(name:'Architeture')
+
+# puts "Categories created"
 
 puts "\n== Seeding the database with fixtures =="
 system("bin/rails db:fixtures:load")
-
