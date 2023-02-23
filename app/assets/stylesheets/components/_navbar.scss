@@ -1,0 +1,25 @@
+.navbar {
+  margin-bottom: 0;
+  background: $rich-black;
+  color: $cornsilk;
+
+  .navbar-brand,
+  .nav-item,
+  .navbar-toggler {
+    color: $cornsilk;
+  }
+
+  .navbar-toggler {
+    background-color: $gold;
+  }
+
+  @media (max-width: 992px) {
+    #navbarText {
+      background-color: #004643;
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px $gold;
+      padding: inherit;
+      margin-top: 10px;
+    }
+  }
+}

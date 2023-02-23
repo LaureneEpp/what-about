@@ -1,5 +1,5 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
 
 // Mixins
 // @import "mixins/media";
@@ -10,6 +10,7 @@
 
 // Components
 @import "components/btn";
+@import "components/navbar";
 // @import "components/error_message";
 // @import "components/form";
 // @import "components/visually_hidden";
