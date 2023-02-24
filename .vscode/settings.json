@@ -20,11 +20,6 @@
     "editor.defaultFormatter": "manuelpuyol.erb-linter",
     "editor.formatOnSave": true
   },
-
-  // "eslint.format.enable": true,
-  // "editor.codeActionsOnSave": {
-  //   "source.fixAll.eslint": true
-  // },
   "workbench.iconTheme": "vscode-icons",
   "editor.formatOnType": true,
   "ruby.rubocop.useBundler": true,
