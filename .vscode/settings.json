@@ -1,0 +1,36 @@
+{
+  "[ruby]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // "editor.formatOnPaste": true,
+  // "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "workbench.colorTheme": "Default Dark+",
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "files.associations": {
+    "*.html.erb": "erb"
+  },
+  "[erb]": {
+    "editor.defaultFormatter": "manuelpuyol.erb-linter",
+    "editor.formatOnSave": true
+  },
+
+  // "eslint.format.enable": true,
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll.eslint": true
+  // },
+  "workbench.iconTheme": "vscode-icons",
+  "editor.formatOnType": true,
+  "ruby.rubocop.useBundler": true,
+  "prettier.bracketSameLine": true,
+  "workbench.editor.enablePreview": false,
+  "window.zoomLevel": -1,
+  "eslint.format.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+}

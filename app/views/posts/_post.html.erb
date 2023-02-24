@@ -1,12 +1,16 @@
-<div class="post">
-  <%= link_to post.title, post_path(post) %>
-  <div class="post__actions">
-    <%= button_to "Delete",
-                  post_path(post),
-                  method: :delete,
-                  class: "btn btn--light" %>
-    <%= link_to "Edit",
-                edit_post_path(post),
-                class: "btn btn--light" %>
-  </div>
+<div class="col">
+  <div class="card-image">
+    <%= link_to post_path(post.id) do %>
+      <% if post.image.present? %>
+        <%= image_tag post.image.variant(:thumb), class:"img-fluid img-thumbnail" %>
+      <% else %>
+        <%= image_tag("landscape01.jpeg", alt: "default", size: '500x500', class:"img-fluid img-thumbnail") %>
+      <% end %>
+    <% end %>
+    <div class="card-information">
+      <h3 class="title"><%= post.title.upcase %></h3>
+      <h4 class="subtitle"><%= post.category.name %></h4>
+      <p class="date"><%= post.created_at.strftime("%d/%m/%Y")%></p>
+    </div>
+  </div>   
 </div>

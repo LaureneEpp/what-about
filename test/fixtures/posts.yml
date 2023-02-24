@@ -4,11 +4,39 @@
 # model remove the "{}" from the fixture titles and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-first:
-  title: First post
+# first:
+#   title: First post
+#   # category: category02
 
-second:
-  title: Second post
+# second:
+#   title: Second post
+#   # category: 
 
-third:
-  title: Third post
+# third:
+#   title: Third post
+#   # category_id: 2
+
+# four:
+#   title: Fourth post
+#   # category_id: 2
+
+# five:
+#   title: Fifth post
+#   # category_id: 2
+
+# six:
+#   title: Sixth post
+#   # category_id: 2
+
+# seven:
+#   title: Seventh post
+#   # category_id: 1
+
+# eight:
+#   title: Eighth post
+#   # category_id: 3
+
+
+
+
+
