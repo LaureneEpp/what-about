@@ -1,0 +1,32 @@
+// Trainer Card
+.card-image {
+  position: relative;
+  text-align: center;
+  color: $cornsilk;
+}
+.card-information {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .title, .subtitle {
+    font-weight: bold;
+  }
+  
+  .title {
+    font-size: larger;
+  }
+
+  .subtitle{
+    font-size: medium;
+  }
+
+  .date {
+    font-size: small;
+    font-weight: normal;
+  }
+}

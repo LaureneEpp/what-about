@@ -1,8 +1,7 @@
 <div class="container">
   <h1>Posts</h1>
   <%= link_to "New post", new_post_path, class: "btn btn--primary" %>
-  
-  <div class="row text-center text-lg-start">
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
     <%= render @posts %>
   </div>
 </div>
