@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
-  
+  before_action :set_post, only: %i[show edit update destroy]
+
+  require "mini_magick"
+
   # GET /posts
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.all.order("created_at DESC")
   end
 
   # GET /posts/1
@@ -15,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-# GET /posts/1/edit
+  # GET /posts/1/edit
   def edit
   end
 
@@ -32,7 +34,7 @@ class PostsController < ApplicationController
     end
   end
 
-    # PATCH/PUT /posts/1
+  # PATCH/PUT /posts/1
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -50,17 +52,16 @@ class PostsController < ApplicationController
       redirect_to posts_url, notice: "Post was successfully destroyed."
     end
   end
-  
+
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def post_params
-      params.require(:post).permit(:title, :content, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def post_params
+    params.require(:post).permit(:title, :content, :image, :category_id, :image)
+  end
 end
-
-

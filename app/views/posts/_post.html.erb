@@ -1,15 +1,13 @@
 <div class="post">
-  <div class="post_content">
-    <h2 class="title"><%= link_to post.title, post_path(post) %></h2>
-    <p class="date"><%= post.created_at.strftime('%B, %d, %Y')%></p>
-  </div> 
-  <div class="post__actions">
-    <%= button_to "Delete",
-                  post_path(post),
-                  method: :delete,
-                  class: "btn btn--light" %>
-    <%= link_to "Edit",
-                edit_post_path(post),
-                class: "btn btn--light" %>
+  <div class="col-lg-3 col-md-4 col-6">
+    <div class="post_content">
+      <h2 class="title"><%= link_to post.title, post_path(post) %></h2>
+      <p class="date"><%= post.created_at.strftime('%B, %d, %Y')%></p>
+      <% if post.image.present? %>
+        <%= image_tag post.image.variant(resize_to_limit: [100, 100], format: :jpeg, sampling_factor: "4:2:0", strip: true, interlace: "JPEG", colorspace: "sRGB", quality: 80) %>
+      <% else %>
+        <%= image_tag("landscape01.jpeg", alt: "default", size: '50x50', class:"img-fluid rounded-circle") %>
+      <% end %>
+    </div> 
   </div>
 </div>

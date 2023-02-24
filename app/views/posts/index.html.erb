@@ -2,5 +2,7 @@
   <h1>Posts</h1>
   <%= link_to "New post", new_post_path, class: "btn btn--primary" %>
   
-  <%= render @posts %>
+  <div class="row text-center text-lg-start">
+    <%= render @posts %>
+  </div>
 </div>
