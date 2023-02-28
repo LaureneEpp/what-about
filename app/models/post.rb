@@ -9,7 +9,12 @@ class Post < ApplicationRecord
   # has_many_attached :pictures
   # has_rich_text :body
 
-  validates :title, :content, presence: true
+  validates :title, :subtitle, :content, presence: true
+  validates :subtitle,
+            length: {
+              maximum: 80,
+              too_long: "%{count} characters is the maximum allowed",
+            }
   validates :state, inclusion: { in: %w[draft published] }
   validates :publisher, presence: true, if: :published?
   validates :published_at, presence: true, if: :published?

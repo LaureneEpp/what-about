@@ -29,8 +29,7 @@ puts "Categories created"
 
 Post.create(
   title: "Post01",
-  subtitle:
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
@@ -38,55 +37,49 @@ Post.create(
 Post.create(
   title: "Post02",
   subtitle:
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit. amet, consectetur, adipisci velit.",
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
 )
 Post.create(
   title: "Post03",
-  subtitle:
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 2,
 )
 Post.create(
   title: "Post04",
-  subtitle:
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
 )
 Post.create(
   title: "Post05",
-  subtitle:
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 3,
 )
 Post.create(
   title: "Post06",
-  subtitle:
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
 )
 Post.create(
   title: "Post07",
-  subtitle:
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
 )
 Post.create(
   title: "Post08",
-  subtitle:
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 4,
