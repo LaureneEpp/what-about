@@ -4,3 +4,7 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 import "trix"
 import "@rails/actiontext"
+
+import animatedLandingPage from './animatedLandingPage'
+
+console.log('hello test ')
