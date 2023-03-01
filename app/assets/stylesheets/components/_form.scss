@@ -1,0 +1,29 @@
+.form {
+    background-color: $gold;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px $black;
+    width: 75%;
+    padding: 20px;
+}
+
+.simple_form {
+    input, label {
+        color: $rich-black;
+    }
+    input {
+      margin: 5px auto 0px auto;
+      word-break: break-word;
+    }
+  
+    label, select {
+      margin-top: 15px;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    .post_image {
+        display: table-caption;
+    }
+  }
