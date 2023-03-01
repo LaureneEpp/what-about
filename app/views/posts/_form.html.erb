@@ -1,14 +1,18 @@
-<%= simple_form_for @post, html: { class: "post_form" } do |f| %>
-  <% if post.errors.any? %>
-    <div class="error-message">
-      <%= post.errors.full_messages.to_sentence.capitalize %>
-    </div>
-  <% end %>
+<div class="container container-form">
+  <div class="form">
+    <%= simple_form_for @post, html: { class: "post_form" } do |f| %>
+      <% if post.errors.any? %>
+        <div class="error-message">
+          <%= post.errors.full_messages.to_sentence.capitalize %>
+        </div>
+      <% end %>
 
-  <%= f.input :title, input_html: { autofocus: true } %>
-  <%= f.input :content, input_html: { autofocus: true } %>
-  <%=f.collection_select :category_id, Category.all, :id, :name %>
-  <%= f.input :image, as: :file, placeholder: 'Upload a picture', direct_upload: true %>
+      <%= f.input :title, input_html: { autofocus: true } %>
+      <%= f.input :content, input_html: { autofocus: true } %>
+      <%=f.collection_select :category_id, Category.all, :id, :name %>
+      <%= f.input :image, as: :file, placeholder: 'Upload a picture', direct_upload: true %>
 
-  <%= f.submit class: "btn btn--secondary" %>
-<% end %>
+      <%= f.submit 'Update', class: "btn btn-update mt-4" %>
+    <% end %>
+  </div>
+</div>
