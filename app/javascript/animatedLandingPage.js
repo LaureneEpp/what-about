@@ -11,11 +11,14 @@ window.addEventListener('load', () => {
     const TL = gsap.timeline({ paused: true });
     TL
         .staggerFrom(titreSpans, 1, { top: -50, opacity: 0, ease: "power2.out" }, 0.3)
-        .staggerFrom(btns, 3, { opacity: 0, ease: "power2.out" }, 0.3, '-=1')
+        .staggerFrom(btns, 1, { opacity: 0, ease: "power2.out" }, 0.3, '-=1')
         .from(l1, 1, { width: 0, ease: "power2.out" }, '-=2')
         .from(l2, 1, { width: 0, ease: "power2.out" }, '-=2')
         .staggerFrom(medias, 1, { right: -200, ease: "power2.out" },  0.3, '-=1')
         
     TL.play();
 
+    console.log("animation1 ")
 })
+
+console.log("animation2 ")
