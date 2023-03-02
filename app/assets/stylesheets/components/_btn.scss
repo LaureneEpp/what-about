@@ -22,46 +22,51 @@
   color: $brunswick-green;
 }
 
-.form {
-  .btn-update {
-    color: $peach;
-    background-color: transparent;
-    margin-top: 20px;
-    padding: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-color: $peach;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    border-radius: 0;
-  }
-
-  .btn-update:hover {
-    background: $peach;
-    color: $cornsilk;
-    border-color: $peach;
-  }
-}
-
-.btn-delete {
-  color: $red-patone;
+.btn-create,
+.btn-delete,
+.btn-update {
   background-color: transparent;
+  color: $cornsilk;
   margin-top: 20px;
   padding: 10px;
   text-transform: uppercase;
   font-weight: bold;
-  border-color: $red-patone;
   font-weight: bold;
   letter-spacing: 0.05em;
   border-radius: 0;
 }
-.btn-delete:hover {
-  background: $red-patone;
-  color: $rich-black;
+
+.btn-create {
+  color: $brunswick-green;
+  border-color: $brunswick-green;
+}
+
+.btn-create:hover {
+  background: $brunswick-green;
+  color: $cornsilk;
+  border-color: $brunswick-green;
+}
+
+.btn-delete {
+  color: $red-patone;
   border-color: $red-patone;
 }
 
+.btn-delete:hover {
+  background: $red-patone;
+  color: $cornsilk;
+  border-color: $red-patone;
+}
+.btn-update {
+  color: $peach;
+  border-color: $peach;
+}
 
+.btn-update:hover {
+  background: $peach;
+  color: $cornsilk;
+  border-color: $peach;
+}
 
 // .logo {
 //   position: absolute;
