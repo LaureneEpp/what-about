@@ -1,29 +1,58 @@
 .form {
-    background-color: $gold;
-    border-radius: 5px;
-    box-shadow: 5px 5px 5px 5px $black;
-    width: 75%;
-    padding: 20px;
+  background-color: $gold;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px $black;
+  width: 75%;
+  padding: 20px;
 }
 
 .simple_form {
-    input, label {
-        color: $rich-black;
-    }
-    input {
-      margin: 5px auto 0px auto;
-      word-break: break-word;
-    }
-  
-    label, select {
-      margin-top: 15px;
-    }
-
-    label {
-        margin-bottom: 5px;
-    }
-
-    .post_image {
-        display: table-caption;
-    }
+  input,
+  label {
+    color: $rich-black;
   }
+  input {
+    margin: 5px auto 0px auto;
+    word-break: break-word;
+  }
+
+  label,
+  select {
+    margin-top: 15px;
+  }
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  .post_image {
+    display: table-caption;
+  }
+}
+
+.form-title {
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h2 {
+    display: block;
+    padding: 15px;
+    background-color: $brunswick-green;
+    color: $cornsilk;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}
+
+.form-account {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+}

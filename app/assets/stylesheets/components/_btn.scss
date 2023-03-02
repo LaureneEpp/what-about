@@ -38,10 +38,30 @@
 
   .btn-update:hover {
     background: $peach;
-    color: $rich-black;
-    border-color: #003d4f;
+    color: $cornsilk;
+    border-color: $peach;
   }
 }
+
+.btn-delete {
+  color: $red-patone;
+  background-color: transparent;
+  margin-top: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-color: $red-patone;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+}
+.btn-delete:hover {
+  background: $red-patone;
+  color: $rich-black;
+  border-color: $red-patone;
+}
+
+
 
 // .logo {
 //   position: absolute;
