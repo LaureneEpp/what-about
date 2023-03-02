@@ -115,12 +115,12 @@
   }
 }
 
-.index-title {
+.index-title, .post-form-title {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
 
-  h1 {
+  h1, h3 {
     padding: 15px;
     color: $brunswick-green;
     letter-spacing: 3px;
