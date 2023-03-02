@@ -22,17 +22,26 @@
   color: $brunswick-green;
 }
 
+.btn-cancel,
 .btn-create,
 .btn-delete,
 .btn-update {
   background-color: transparent;
-  color: $cornsilk;
   margin-top: 20px;
   padding: 10px;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.05em;
   border-radius: 0;
+}
+
+.btn-cancel {
+  color: $tyrian-purple;
+  border-color: $tyrian-purple;
+}
+.btn-cancel:hover {
+  background: $tyrian-purple;
+  color: $cornsilk;
 }
 
 .btn-create {
