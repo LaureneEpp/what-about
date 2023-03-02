@@ -1,5 +1,5 @@
-#post{
-    padding: 30px 30px 30px 30px;
+#post {
+  padding: 30px 30px 30px 30px;
 }
 
 .post-content {
@@ -112,5 +112,19 @@
         font-weight: bold;
       }
     }
+  }
+}
+
+.index-title, .post-form-title {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  h1, h3 {
+    padding: 15px;
+    color: $brunswick-green;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: bolder;
   }
 }
