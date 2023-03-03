@@ -1,0 +1,5 @@
+class RemovePublisherFromPost < ActiveRecord::Migration[7.0]
+  def change
+    remove_column :posts, :publisher
+  end
+end
