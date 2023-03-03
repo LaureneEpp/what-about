@@ -11,7 +11,7 @@ class User < ApplicationRecord
   friendly_id :username, use: :slugged
 
   after_initialize :set_defaults
-
+  has_one :publisher
   validates :first_name, :last_name, presence: true
   validates :username,
             uniqueness: true,

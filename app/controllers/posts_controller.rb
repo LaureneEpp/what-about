@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
+    @post.publisher_id = current_user.publisher
 
     respond_to do |format|
       if @post.save
@@ -62,6 +63,13 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :content, :image, :category_id, :image)
+    params.require(:post).permit(
+      :title,
+      :content,
+      :image,
+      :publisher_id,
+      :category_id,
+      :image,
+    )
   end
 end

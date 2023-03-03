@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   extend FriendlyId
 
   belongs_to :category
-  has_one :publisher
+  belongs_to :publisher
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_limit: [500, 500]
   end

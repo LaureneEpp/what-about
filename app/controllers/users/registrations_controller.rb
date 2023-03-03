@@ -11,7 +11,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
+    super do |resource|
+      Publisher.create(
+        first_name: resource.first_name,
+        last_name: resource.last_name,
+        user_id: resource.id,
+      )
+    end
   end
 
   # GET /resource/edit

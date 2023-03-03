@@ -9,7 +9,7 @@
           <%= post.errors.full_messages.to_sentence.capitalize %>
         </div>
       <% end %>
-
+      <%= f.input :publisher_id, as: :hidden, value: current_user.publisher.id %> 
       <%= f.input :title, input_html: { autofocus: true } %>
       <%= f.input :content, input_html: { autofocus: true } %>
       <%=f.collection_select :category_id, Category.all, :id, :name %>
