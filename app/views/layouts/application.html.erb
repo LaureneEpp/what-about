@@ -16,6 +16,9 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main>
+      <div id="flash" class="flash">
+        <%= render "layouts/flash" %>
+      </div>
       <%= yield %>
     </main>
   </body>
