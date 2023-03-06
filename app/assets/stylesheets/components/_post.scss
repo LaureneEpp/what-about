@@ -59,7 +59,7 @@
 
 .post-image-heading {
   .post-title,
-  .post-subtitle {
+  .post-subtitle, .post-author {
     display: flex;
     justify-content: center;
   }
@@ -69,7 +69,7 @@
   }
 
   h1,
-  h3 {
+  h3, h5 {
     display: block;
     padding: 15px;
     background-color: $brunswick-green;
@@ -83,7 +83,7 @@
     font-weight: bold;
   }
 
-  h3 {
+  h3, h5 {
     font-size: small;
     font-weight: normal;
     opacity: 0.8;
@@ -91,11 +91,11 @@
 
   @media screen and (min-width: 480px) {
     .post-title,
-    .post-subtitle {
+    .post-subtitle, .post-author {
       justify-content: flex-start;
     }
 
-    h3 {
+    h3, h5 {
       margin-bottom: 4em;
     }
   }
@@ -107,7 +107,7 @@
         font-weight: bolder;
       }
 
-      h3 {
+      h3, h5 {
         font-size: medium;
         font-weight: bold;
       }
