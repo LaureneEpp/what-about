@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   extend FriendlyId
+  friendly_id :username, use: :slugged
 
   belongs_to :category
   belongs_to :publisher
