@@ -22,35 +22,42 @@ class PostsController < ApplicationController
   end
 
   # POST /posts
+
   def create
     @post = Post.new(post_params)
-    @post.publisher_id = current_user.publisher
+    @post.publisher_id = current_user.publisher.id
 
-    respond_to do |format|
-      if @post.save
-        redirect_to @post, notice: "Post was successfully created."
-      else
-        render :new, status: :unprocessable_entity
+    if @post.save
+      respond_to do |format|
+        format.html do
+          redirect_to posts_path, notice: "Quote was successfully created."
+        end
+        format.turbo_stream
       end
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /posts/1
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        redirect_to @post, notice: "Post was successfully updated."
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @post.update(post_params)
+      redirect_to post_path(@post), notice: "Post was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /posts/1
   def destroy
     @post.destroy
+    # redirect_to posts_url, notice: "Post was successfully destroyed."
+
     respond_to do |format|
-      redirect_to posts_url, notice: "Post was successfully destroyed."
+      format.html do
+        redirect_to posts_url, notice: "Post was successfully destroyed."
+      end
+      format.turbo_stream
     end
   end
 
@@ -58,13 +65,14 @@ class PostsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def post_params
     params.require(:post).permit(
       :title,
+      :subtitle,
       :content,
       :image,
       :publisher_id,

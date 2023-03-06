@@ -9,21 +9,33 @@
 #Clean up
 Category.delete_all
 User.delete_all
+Publisher.delete_all
 
 puts "Categories deleted"
 puts "Users deleted"
+puts "Publishers deleted"
 
 #Seeding
-# User.create!(first_name: "Test01", last_name: "Test01", username: "Test01", email: "test01@test.org", password: "password")
+User.create!(
+  first_name: "Test01",
+  last_name: "Test01",
+  username: "Test01",
+  email: "test01@test.org",
+  password: "password",
+)
 # User.create(username: "Test02", email: "test02@test.org")
 # User.create(username: "Test03", email: "test03@test.org")
 
-# puts "Users created"
+puts "Users created"
+
+Publisher.create!(user_id: 1)
+
+puts "Publishers created"
 
 Category.create(name: "What is new?")
 Category.create(name: "Lifestyle")
 Category.create(name: "Retail")
-Category.create(name: "Architeture")
+Category.create(name: "Architecture")
 
 puts "Categories created"
 
@@ -33,6 +45,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
+  publisher_id: 1,
 )
 Post.create(
   title: "Post02",
@@ -41,6 +54,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
+  publisher_id: 1,
 )
 Post.create(
   title: "Post03",
@@ -48,6 +62,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 2,
+  publisher_id: 1,
 )
 Post.create(
   title: "Post04",
@@ -55,6 +70,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
+  publisher_id: 1,
 )
 Post.create(
   title: "Post05",
@@ -62,6 +78,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 3,
+  publisher_id: 1,
 )
 Post.create(
   title: "Post06",
@@ -69,6 +86,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
+  publisher_id: 1,
 )
 Post.create(
   title: "Post07",
@@ -76,6 +94,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
+  publisher_id: 1,
 )
 Post.create(
   title: "Post08",
@@ -83,6 +102,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 4,
+  publisher_id: 1,
 )
 
 puts "Posts created"
