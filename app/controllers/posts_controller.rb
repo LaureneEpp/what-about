@@ -30,19 +30,37 @@ class PostsController < ApplicationController
     if @post.save
       respond_to do |format|
         format.html do
-          redirect_to posts_path, notice: "Quote was successfully created."
+          redirect_to posts_path, notice: "Post was successfully created."
         end
-        format.turbo_stream
+        format.turbo_stream do
+          flash.now[:notice] = "Post was successfully created."
+        end
       end
     else
-      render :new, status: :unprocessable_entity
+      # render :new, status: :unprocessable_entity
+      render :news
     end
   end
 
   # PATCH/PUT /posts/1
+  # def update
+  #   if @post.update(post_params)
+  #     redirect_to post_path(@post), notice: "Post was successfully updated."
+  #   else
+  #     render :edit, status: :unprocessable_entity
+  #   end
+  # end
+
   def update
-    if @post.update(post_params)
-      redirect_to post_path(@post), notice: "Post was successfully updated."
+    if @post.update(quote_params)
+      respond_to do |format|
+        format.html do
+          redirect_to posts_path, notice: "Post was successfully updated."
+        end
+        format.turbo_stream do
+          flash.now[:notice] = "Post was successfully updated."
+        end
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -55,10 +73,18 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to posts_url, notice: "Post was successfully destroyed."
+        redirect_to quotes_path, notice: "Post was successfully destroyed."
       end
-      format.turbo_stream
+      format.turbo_stream do
+        flash.now[:notice] = "Post was successfully destroyed."
+      end
     end
+    # respond_to do |format|
+    #   format.html do
+    #     redirect_to posts_url, notice: "Post was successfully destroyed."
+    #   end
+    #   format.turbo_stream
+    # end
   end
 
   private

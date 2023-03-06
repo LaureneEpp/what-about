@@ -1,4 +1,5 @@
 <%= turbo_stream.remove @post %>
+<%= render_turbo_stream_flash_messages %>
 
 <% unless @posts.exists? %>
   <%= turbo_stream.update Post.new do %>
