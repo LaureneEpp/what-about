@@ -3,7 +3,7 @@
     <h3>What about?</h3>
   </div>
   <div class="form">
-    <%= simple_form_for @post, html: { class: "post_form", data: { turbo_frame: @post } } do |f| %>
+    <%= simple_form_for @post, html: { class: "post_form" } do |f| %>
       <% if post.errors.any? %>
         <div class="error-message">
           <%= post.errors.full_messages.to_sentence.capitalize %>

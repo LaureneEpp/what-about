@@ -38,7 +38,7 @@ class PostsController < ApplicationController
       end
     else
       # render :new, status: :unprocessable_entity
-      render :news
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -52,10 +52,10 @@ class PostsController < ApplicationController
   # end
 
   def update
-    if @post.update(quote_params)
+    if @post.update(post_params)
       respond_to do |format|
         format.html do
-          redirect_to posts_path, notice: "Post was successfully updated."
+          redirect_to post_path(@post), notice: "Post was successfully updated."
         end
         format.turbo_stream do
           flash.now[:notice] = "Post was successfully updated."
