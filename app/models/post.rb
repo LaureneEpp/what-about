@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_limit: [500, 500]
   end
-
+  has_many :comments, dependent: :destroy
   # has_many_attached :pictures
   # has_rich_text :body
 

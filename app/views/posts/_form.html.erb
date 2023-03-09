@@ -4,11 +4,8 @@
   </div>
   <div class="form">
     <%= simple_form_for @post, html: { class: "post_form" } do |f| %>
-      <% if post.errors.any? %>
-        <div class="error-message">
-          <%= post.errors.full_messages.to_sentence.capitalize %>
-        </div>
-      <% end %>
+      <%= form_error_notification(post) %>
+
       <%= f.input :publisher_id, as: :hidden, value: current_user.publisher.id %> 
       <%= f.input :title, input_html: { autofocus: true } %>
       <%= f.input :subtitle, input_html: { autofocus: true } %>

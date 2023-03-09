@@ -1,0 +1,18 @@
+<%= turbo_frame_tag comment do %>
+  <div class="comment">
+    <div class="comment-header">
+      <h4 class="comment-title">
+        <%= comment.name %> | <%= comment.created_at.strftime("%d/%m/%Y") %>
+      </h4>
+
+      <div class="comment-actions">
+        <%= link_to edit_post_comment_path(post, comment), class:"icon-edit icon-comment-action" do %>
+          <i class="bi bi-pencil-square"></i>
+        <% end %>
+        <%= button_to post_comment_path(post, comment), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class:"icon-delete icon-comment-action" do %>
+          <i class="bi bi-x-circle-fill"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
