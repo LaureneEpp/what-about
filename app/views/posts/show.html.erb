@@ -50,7 +50,11 @@
                   </div>
                   <div class="modal-body">
                   <%= turbo_frame_tag "comments" do %>
-                    <%= render @comments, post: @post %>
+                    <% if @comments.none? %>
+                      <%= render "comments/empty_state" %>
+                    <% else %>
+                      <%= render @comments, post: @post %>
+                    <% end %>
                   <% end %>
                   </div>
                   <div class="modal-footer">
@@ -63,7 +67,7 @@
         </div>
       </div>
     </div>
-               <%= turbo_frame_tag Comment.new %>
+    <%= turbo_frame_tag Comment.new %>
     <article>
       <p class="py-4" ><%= @post.content %></p>
     </article>co

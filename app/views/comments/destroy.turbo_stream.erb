@@ -1,2 +1,8 @@
 <%= turbo_stream.remove @comment %>
 <%= render_turbo_stream_flash_messages %>
+
+<% unless @comments.exists? %>
+  <%= turbo_stream.update Comment.new do %>
+    <%= render "comments/empty_state" %>
+  <% end %>
+<% end %>
