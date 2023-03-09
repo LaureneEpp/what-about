@@ -11,7 +11,10 @@
       <% end %>
       <div class="card-information">
         <div class="card-title">
-        <h3 class="title"><%= post.title.upcase %></h3>
+        <%= link_to post_path(post.id), data: { turbo_frame: "_top" } do %>
+          <h3 class="title"><%= post.title.upcase %></h3>
+        <% end %>
+        
         <% if current_user.publisher == post.publisher %>
             <%= button_to post_path(post.id), method: :delete, class: "icon-delete" do %>
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -20,8 +23,10 @@
             <% end %>
         <% end %>
         </div>
-        <h4 class="subtitle"><%= post.category.name %></h4>
-        <p class="date"><%= post.created_at.strftime("%d/%m/%Y")%></p>
+        <%= link_to post_path(post.id), data: { turbo_frame: "_top" } do %>
+          <h4 class="subtitle"><%= post.category.name %></h4>
+          <p class="date"><%= post.created_at.strftime("%d/%m/%Y")%></p>
+        <% end %>
       </div>
     </div>   
   </div>
