@@ -43,14 +43,19 @@
             </button>
             <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
+                <div class="modal-content m-4">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="commentModalLabel">Comments</h1>
+                    <h1 class="modal-title fs-5" id="commentModalLabel">
+                    <%= @post.comments.count %> Comments</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                   <%= turbo_frame_tag "comments" do %>
-                    <%= render @comments, post: @post %>
+                    <% if @comments.none? %>
+                      <%= render "comments/empty_state" %>
+                    <% else %>
+                      <%= render @comments, post: @post %>
+                    <% end %>
                   <% end %>
                   </div>
                   <div class="modal-footer">
@@ -63,9 +68,9 @@
         </div>
       </div>
     </div>
-               <%= turbo_frame_tag Comment.new %>
+    <%= turbo_frame_tag Comment.new %>
     <article>
       <p class="py-4" ><%= @post.content %></p>
-    </article>co
+    </article>
   </div>
 </div>
