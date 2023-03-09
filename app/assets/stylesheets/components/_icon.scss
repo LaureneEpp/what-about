@@ -1,6 +1,28 @@
-.icon-delete {
+.icon-create, .icon-delete, .icon-comment, .icon-edit {
   background: transparent;
   border: none;
   font-size: larger;
+}
+
+.icon-create {
+  color: $tyrian-purple;
+
+  &:hover {
+    color: $peach;
+  }
+}
+
+.icon-delete {
   color:$red-patone;
+
+  &:hover {
+    color:$peach;
+  }
+}
+
+.icon-edit {
+  color: $brunswick-green;
+  &:hover {
+    color:$peach;
+  }
 }
