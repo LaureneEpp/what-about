@@ -23,12 +23,36 @@ User.create!(
   email: "test01@test.org",
   password: "password",
 )
-# User.create(username: "Test02", email: "test02@test.org")
-# User.create(username: "Test03", email: "test03@test.org")
+User.create!(
+  first_name: "Test02",
+  last_name: "Test02",
+  username: "Test02",
+  email: "test02@test.org",
+  password: "password",
+)
+
+User.create!(
+  first_name: "Test03",
+  last_name: "Test03",
+  username: "Test03",
+  email: "test03@test.org",
+  password: "password",
+)
+
+User.create!(
+  first_name: "Test04",
+  last_name: "Test04",
+  username: "Test04",
+  email: "test04@test.org",
+  password: "password",
+)
 
 puts "Users created"
 
 Publisher.create!(user_id: 1)
+Publisher.create!(user_id: 2)
+Publisher.create!(user_id: 3)
+Publisher.create!(user_id: 4)
 
 puts "Publishers created"
 
@@ -103,6 +127,85 @@ Post.create(
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 4,
   publisher_id: 1,
+)
+
+Post.create(
+  title: "Post09",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
+  content:
+    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+  category_id: 2,
+  publisher_id: 2,
+)
+Post.create(
+  title: "Post10",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
+  content:
+    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+  category_id: 2,
+  publisher_id: 2,
+)
+
+Post.create(
+  title: "Post11",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
+  content:
+    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+  category_id: 2,
+  publisher_id: 3,
+)
+
+Post.create(
+  title: "Post12",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
+  content:
+    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+  category_id: 2,
+  publisher_id: 2,
+)
+
+Post.create(
+  title: "Post13",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
+  content:
+    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+  category_id: 1,
+  publisher_id: 2,
+)
+Post.create(
+  title: "Post14",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
+  content:
+    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+  category_id: 1,
+  publisher_id: 2,
+)
+
+Post.create(
+  title: "Post15",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
+  content:
+    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+  category_id: 1,
+  publisher_id: 3,
+)
+
+Post.create(
+  title: "Post16",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
+  content:
+    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+  category_id: 4,
+  publisher_id: 3,
+)
+
+Post.create(
+  title: "Post17",
+  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
+  content:
+    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+  category_id: 4,
+  publisher_id: 3,
 )
 
 puts "Posts created"
