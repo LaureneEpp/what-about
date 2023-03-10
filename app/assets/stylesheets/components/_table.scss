@@ -1,0 +1,40 @@
+.search-title {
+  height: 20%;
+}
+
+.table-results {
+  margin-top: 30px;
+  width: 80%;
+
+  table {
+    background-color: $gold;
+    border: 4px solid $brunswick-green;
+  }
+
+  tr {
+    text-align: center;
+  }
+
+  th {
+    padding: 30px;
+  }
+
+  th, .search-title {
+    text-transform: uppercase;
+    font-weight: bolder;
+    
+    a:hover {
+        text-decoration: none;
+        color: $cornsilk;
+    }
+  }
+
+  .search-title, .search-subtitle {
+    word-break: normal;
+    text-align: justify;
+  }
+
+  .search-category {
+    font-style: italic;
+  }
+}

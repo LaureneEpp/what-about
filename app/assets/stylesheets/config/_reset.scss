@@ -17,7 +17,6 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  
   background-color: $rich-black;
   background-repeat: no-repeat;
   color: $cornsilk;
@@ -81,11 +80,4 @@ h5 {
 a {
   color: $cornsilk;
   text-decoration: none;
-  // transition: color 200ms;
-
-  // &:hover,
-  // &:focus,
-  // &:active {
-  //   color: var(--color-primary-rotate);
-  // }
 }

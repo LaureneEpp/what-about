@@ -36,8 +36,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 40px 40px 40px;
-  // text-align: center;
+  height: 100%;
 }
 
 .container-form,
@@ -53,11 +52,4 @@
   background-size: cover;
   position: relative;
   overflow-x: hidden;
-}
-
-.container-table {
-  background-color: red;
-  h1 {
-    background-color: blue;
-  }
 }
