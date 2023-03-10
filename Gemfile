@@ -39,7 +39,7 @@ gem 'simple_form'
 gem 'friendly_id', '~> 5.4.0'
 
 # Use authorisation gems
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'cancancan'
 
 # Search Engine
