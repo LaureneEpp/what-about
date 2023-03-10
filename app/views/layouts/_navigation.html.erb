@@ -5,10 +5,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <%= link_to "Posts", posts_path, class: "nav-item nav-link me-4" %>
-        <%= render 'search/form' %>
-      </ul>
+      <% if user_signed_in? %>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <%= link_to "Posts", posts_path, class: "nav-item nav-link me-4" %>
+          <%= render 'search/form' %>
+        </ul>   
+      <% end %>
       <ul class="navbar-nav mb-2 mb-lg-0">
         <% if user_signed_in? %>
           <%= link_to current_user.email, edit_user_registration_path, class: "nav-item nav-link" %>
