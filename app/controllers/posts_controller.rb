@@ -17,8 +17,8 @@ class PostsController < ApplicationController
     #       end
     # end
 
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    # @q = Post.ransack(params[:q])
+    # @posts = @q.result(distinct: true)
     @posts = Post.all.order("created_at DESC")
   end
 

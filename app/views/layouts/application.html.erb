@@ -12,14 +12,13 @@
   </head>
 
   <body>
-
-      <%= render 'layouts/navigation' %>
-
-
       <div id="flash" class="flash">
         <%= render "layouts/flash" %>
       </div>
+      <%= render 'layouts/navigation' %>
+      <div class="box">
       <%= yield %>
+      </div>
 
   </body>
 </html>

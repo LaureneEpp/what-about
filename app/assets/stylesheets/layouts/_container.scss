@@ -1,7 +1,3 @@
-.container {
-  padding: 30px 30px 30px 30px;
-}
-
 .container-btns {
   position: relative;
   top: 50px;
@@ -40,7 +36,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // text-align: center;
+  height: 100%;
 }
 
 .container-form,
@@ -56,11 +52,4 @@
   background-size: cover;
   position: relative;
   overflow-x: hidden;
-}
-
-.container-table {
-  background-color: red;
-  h1 {
-    background-color: blue;
-  }
 }

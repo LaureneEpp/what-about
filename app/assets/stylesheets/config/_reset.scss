@@ -15,14 +15,21 @@ html, body {
 }
 
 body {
-  // padding: 30px 30px 30px 30px;
   display: flex;
   flex-direction: column;
-
   background-color: $rich-black;
   background-repeat: no-repeat;
   color: $cornsilk;
   font-family: Georgia, serif;
+}
+
+.box {
+  padding: 30px 30px 30px 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 img,
@@ -73,11 +80,4 @@ h5 {
 a {
   color: $cornsilk;
   text-decoration: none;
-  // transition: color 200ms;
-
-  // &:hover,
-  // &:focus,
-  // &:active {
-  //   color: var(--color-primary-rotate);
-  // }
 }
