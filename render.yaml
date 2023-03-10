@@ -1,6 +1,6 @@
 databases:
   - name: postgres
-    ipAllowlist: []
+    ipAllowList: []
     # databaseName: mysite
     # user: mysite
 
@@ -19,7 +19,7 @@ services:
         sync: false
   - type: redis
     name: redis
-    ipAllowlist: []
+    ipAllowList: []
     plan: free
     maxmemoryPolicy: noeviction
     
