@@ -5,12 +5,28 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
+    # if params[:search]
+    #   search_term = params[:search].downcase.gsub(/\s+/, "")
+    #   @posts =
+    #     Post
+    #       .all
+    #       .order("created_at DESC")
+    #       .select do |post|
+    #         post.title.downcase.include?(search_term) ||
+    #           post.category.name.downcase.include?(search_term)
+    #       end
+    # end
+
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
     @posts = Post.all.order("created_at DESC")
   end
 
   # GET /posts/1
   def show
     @comments = @post.comments.ordered
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
   end
 
   # GET /posts/new

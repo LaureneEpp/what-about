@@ -27,6 +27,14 @@ class Post < ApplicationRecord
     state == "published"
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[category subtitle title]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[category comments image_attachment image_blob publisher]
+  end
+
   private
 
   def set_defaults
