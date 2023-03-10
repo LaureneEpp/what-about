@@ -10,7 +10,18 @@ class Ability
     #   can :read, :all
     #   return unless user.admin?
     #   can :manage, :all
-    #
+
+    # can :update, Post, user: user
+    # can :read, Post, published: true
+
+    # return unless user.present?
+
+    # can %i[read update], Post, user: user
+
+    # return unless user.admin?
+
+    # can :manage, Post
+
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
@@ -28,13 +39,5 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
-    # can :read, Post, public: true
-
-    # return unless user.present?  # additional permissions for logged in users (they can read their own posts)
-    # can :read, Post, user: user
-
-    # return unless user.admin?  # additional permissions for administrators
-    # can :read, Post
-  
   end
 end
