@@ -8,6 +8,7 @@
 
 #Clean up
 Category.delete_all
+Role.delete_all
 User.delete_all
 Publisher.delete_all
 
@@ -16,12 +17,26 @@ puts "Users deleted"
 puts "Publishers deleted"
 
 #Seeding
+Role.create({ name: 0, description: "Can read posts" })
+Role.create(
+  {
+    name: 1,
+    description: "Can read and create posts. Can update and destroy own posts",
+  },
+)
+Role.create(
+  { name: 2, description: "Can perform any CRUD operation on any resource" },
+)
+
+puts "Roles created"
+
 User.create!(
   first_name: "Test01",
   last_name: "Test01",
   username: "Test01",
   email: "test01@test.org",
   password: "password",
+  role_id: 1,
 )
 User.create!(
   first_name: "Test02",
@@ -29,6 +44,7 @@ User.create!(
   username: "Test02",
   email: "test02@test.org",
   password: "password",
+  role_id: 2,
 )
 
 User.create!(
@@ -37,6 +53,7 @@ User.create!(
   username: "Test03",
   email: "test03@test.org",
   password: "password",
+  role_id: 1,
 )
 
 User.create!(
@@ -45,6 +62,7 @@ User.create!(
   username: "Test04",
   email: "test04@test.org",
   password: "password",
+  role_id: 3,
 )
 
 puts "Users created"

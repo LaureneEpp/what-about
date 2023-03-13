@@ -11,13 +11,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super do |resource|
-      Publisher.create(
-        first_name: resource.first_name,
-        last_name: resource.last_name,
-        user_id: resource.id,
-      )
-    end
+    # super do |resource|
+    # User.update(role_id: 0)
+    # Publisher.create(
+    #   first_name: resource.first_name,
+    #   last_name: resource.last_name,
+    #   user_id: resource.id,
+    # )
+    # User.update(role_id: 0)
+    # end
+    super
   end
 
   # GET /resource/edit
@@ -44,7 +47,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
@@ -58,7 +61,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     devise_parameter_sanitizer.permit(
       :account_update,
-      keys: %i[first_name last_name username],
+      keys: %i[first_name last_name username role_id],
     )
   end
 

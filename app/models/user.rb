@@ -10,8 +10,12 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :username, use: :slugged
 
-  after_initialize :set_defaults
+  # after_initialize :set_defaults
+  before_save :assign_role
   has_one :publisher
+  belongs_to :role, optional: true
+  has_many :posts, dependent: :destroy
+
   validates :first_name, :last_name, presence: true
   validates :username,
             uniqueness: true,
@@ -20,9 +24,7 @@ class User < ApplicationRecord
               with: /\A[a-zA-Z]+([a-zA-Z]|\d)*\Z/,
             }
 
-  private
-
-  def set_defaults
-    # self.role ||= 'standard'
+  def assign_role
+    self.role = Role.find_by name: "standard" if role.nil?
   end
 end
