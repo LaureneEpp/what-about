@@ -1,4 +1,4 @@
-<div class="container container-account">
+<div class="container container-landing_page container-account">
   <div class="form-title my-4">
     <h2>Sign up</h2>
   </div>
@@ -34,6 +34,7 @@
 
       <div class="form-actions">
         <%= f.button :submit, "Sign up", class:"btn btn-create mt-4" %>
+        <%= link_to 'Cancel', root_path, class:"btn btn-cancel mt-4" %>
       </div>
     <% end %>
   </div>

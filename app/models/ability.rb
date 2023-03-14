@@ -24,6 +24,14 @@ class Ability
 
     # user ||= User.new # Guest user
 
+    # can :read, Post, public: true
+
+    # return unless user.present? # additional permissions for logged in users (they can read their own posts)
+    # can :read, Post, user: user
+
+    # return unless user.admin? # additional permissions for administrators
+    # can :read, Post
+
     if user.admin?
       can :manage, :all
     elsif user.publisher?
@@ -36,7 +44,7 @@ class Ability
         post.try(:user) == user
       end
     elsif user.standard?
-      can :read, Post
+      can :read, Post, public: true
     end
 
     # The first argument to `can` is the action you are giving the user

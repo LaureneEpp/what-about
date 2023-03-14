@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
+  # before_action :set_post, only: %i[show edit update destroy]
   load_and_authorize_resource
+  skip_before_action :authenticate_user!, only: [:index]
 
   require "mini_magick"
 
@@ -32,7 +33,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    # @post = Post.new
   end
 
   # GET /posts/1/edit
@@ -42,23 +43,23 @@ class PostsController < ApplicationController
   # POST /posts
 
   def create
-    @post = Post.new(post_params)
-    # @post.publisher_id = current_user.publisher.id
-    @post.user_id = current_user.id
+    # @post = Post.new(post_params)
+    # # @post.publisher_id = current_user.publisher.id
+    # @post.user_id = current_user.id
 
-    if @post.save
-      respond_to do |format|
-        format.html do
-          redirect_to posts_path, notice: "Post was successfully created."
-        end
-        format.turbo_stream do
-          flash.now[:notice] = "Post was successfully created."
-        end
-      end
-    else
-      # render :new, status: :unprocessable_entity
-      render :new, status: :unprocessable_entity
-    end
+    # if @post.save
+    #   respond_to do |format|
+    #     format.html do
+    #       redirect_to posts_path, notice: "Post was successfully created."
+    #     end
+    #     format.turbo_stream do
+    #       flash.now[:notice] = "Post was successfully created."
+    #     end
+    #   end
+    # else
+    #   # render :new, status: :unprocessable_entity
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /posts/1
@@ -109,9 +110,9 @@ class PostsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_post
-    @post = Post.friendly.find(params[:id])
-  end
+  # def set_post
+  #   @post = Post.friendly.find(params[:id])
+  # end
 
   # Only allow a list of trusted parameters through.
   def post_params

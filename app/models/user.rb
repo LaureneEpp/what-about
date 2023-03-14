@@ -33,14 +33,14 @@ class User < ApplicationRecord
   end
 
   def publisher?
-    role.name == "publisher"
+    self.role == "publisher"
   end
 
   def standard?
-    role.name == "standard"
+    self.role == "standard"
   end
 
   def admin?
-    role.name == "Admin"
+    self.role == "admin"
   end
 end
