@@ -24,7 +24,23 @@ class User < ApplicationRecord
               with: /\A[a-zA-Z]+([a-zA-Z]|\d)*\Z/,
             }
 
+  def fullname
+    "#{first_name} #{last_name}"
+  end
+
   def assign_role
     self.role = Role.find_by name: "standard" if role.nil?
+  end
+
+  def publisher?
+    role.name == "publisher"
+  end
+
+  def standard?
+    role.name == "standard"
+  end
+
+  def admin?
+    role.name == "Admin"
   end
 end

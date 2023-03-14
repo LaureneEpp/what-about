@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_11_151446) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_085234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,10 +89,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_151446) do
     t.bigint "category_id"
     t.text "content"
     t.string "slug"
-    t.bigint "publisher_id"
     t.bigint "user_id"
     t.index ["category_id"], name: "index_posts_on_category_id"
-    t.index ["publisher_id"], name: "index_posts_on_publisher_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -136,7 +134,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_151446) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "posts", "categories"
-  add_foreign_key "posts", "publishers"
   add_foreign_key "posts", "users"
   add_foreign_key "publishers", "users"
   add_foreign_key "users", "roles"

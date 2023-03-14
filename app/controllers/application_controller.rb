@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
   end
+
+  rescue_from CanCan::AccessDenied do
+    flash[:error] = "Access denied!"
+    redirect_to root_url
+  end
 end
