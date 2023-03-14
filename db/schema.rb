@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_212135) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_085234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,10 +89,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_212135) do
     t.bigint "category_id"
     t.text "content"
     t.string "slug"
-    t.bigint "publisher_id"
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_posts_on_category_id"
-    t.index ["publisher_id"], name: "index_posts_on_publisher_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "publishers", force: :cascade do |t|
@@ -102,6 +102,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_212135) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_publishers_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer "name", limit: 2, default: 0
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,8 +123,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_212135) do
     t.string "last_name"
     t.string "slug"
     t.string "username"
+    t.bigint "role_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
@@ -125,6 +134,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_212135) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "posts", "categories"
-  add_foreign_key "posts", "publishers"
+  add_foreign_key "posts", "users"
   add_foreign_key "publishers", "users"
+  add_foreign_key "users", "roles"
 end

@@ -6,7 +6,7 @@
     <%= simple_form_for @post, html: { class: "post_form" } do |f| %>
       <%= form_error_notification(post) %>
 
-      <%= f.input :publisher_id, as: :hidden, value: current_user.publisher.id %> 
+      <%= f.input :user_id, as: :hidden, value: current_user.id %> 
       <%= f.input :title, input_html: { autofocus: true } %>
       <%= f.input :subtitle, input_html: { autofocus: true } %>
       <%= f.input :content, input_html: { autofocus: true } %>

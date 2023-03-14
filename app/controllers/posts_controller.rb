@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  load_and_authorize_resource
 
   require "mini_magick"
 
@@ -42,7 +43,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.publisher_id = current_user.publisher.id
+    # @post.publisher_id = current_user.publisher.id
+    @post.user_id = current_user.id
 
     if @post.save
       respond_to do |format|
@@ -118,7 +120,7 @@ class PostsController < ApplicationController
       :subtitle,
       :content,
       :image,
-      :publisher_id,
+      :user_id,
       :category_id,
       :image,
     )

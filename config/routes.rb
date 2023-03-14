@@ -9,8 +9,11 @@ Rails.application.routes.draw do
                sessions: "users/sessions",
                registrations: "users/registrations",
              }
-  resources :users, only: %i[show index]
-  # devise_for :users
+  scope "/admin" do
+    resources :users, only: %i[show index]
+    # resources :users
+  end
+
   # get "static_pages/landing_page"
   get "static_pages/dashboard"
 

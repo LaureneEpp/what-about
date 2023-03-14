@@ -22,6 +22,23 @@ class Ability
 
     # can :manage, Post
 
+    # user ||= User.new # Guest user
+
+    if user.admin?
+      can :manage, :all
+    elsif user.publisher?
+      can :read, Post
+      can :create, Post
+      can :update, Post do |post|
+        post.try(:user) == user
+      end
+      can :destroy, Post do |post|
+        post.try(:user) == user
+      end
+    elsif user.standard?
+      can :read, Post
+    end
+
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

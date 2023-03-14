@@ -3,7 +3,8 @@ class Post < ApplicationRecord
   friendly_id :username, use: :slugged
 
   belongs_to :category
-  belongs_to :publisher
+  # belongs_to :publisher
+  belongs_to :user
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_limit: [500, 500]
   end
@@ -37,6 +38,6 @@ class Post < ApplicationRecord
 
   private
 
-  def set_defaults
-  end
+  # def set_defaults
+  # end
 end

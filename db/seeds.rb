@@ -8,20 +8,35 @@
 
 #Clean up
 Category.delete_all
+Role.delete_all
 User.delete_all
-Publisher.delete_all
+# Publisher.delete_all
 
 puts "Categories deleted"
 puts "Users deleted"
 puts "Publishers deleted"
 
 #Seeding
+Role.create({ name: 0, description: "Can read posts" })
+Role.create(
+  {
+    name: 1,
+    description: "Can read and create posts. Can update and destroy own posts",
+  },
+)
+Role.create(
+  { name: 2, description: "Can perform any CRUD operation on any resource" },
+)
+
+puts "Roles created"
+
 User.create!(
   first_name: "Test01",
   last_name: "Test01",
   username: "Test01",
   email: "test01@test.org",
   password: "password",
+  role_id: 1,
 )
 User.create!(
   first_name: "Test02",
@@ -29,6 +44,7 @@ User.create!(
   username: "Test02",
   email: "test02@test.org",
   password: "password",
+  role_id: 2,
 )
 
 User.create!(
@@ -37,6 +53,7 @@ User.create!(
   username: "Test03",
   email: "test03@test.org",
   password: "password",
+  role_id: 1,
 )
 
 User.create!(
@@ -45,16 +62,17 @@ User.create!(
   username: "Test04",
   email: "test04@test.org",
   password: "password",
+  role_id: 3,
 )
 
 puts "Users created"
 
-Publisher.create!(user_id: 1)
-Publisher.create!(user_id: 2)
-Publisher.create!(user_id: 3)
-Publisher.create!(user_id: 4)
+# Publisher.create!(user_id: 1)
+# Publisher.create!(user_id: 2)
+# Publisher.create!(user_id: 3)
+# Publisher.create!(user_id: 4)
 
-puts "Publishers created"
+# puts "Publishers created"
 
 Category.create(name: "What is new?")
 Category.create(name: "Lifestyle")
@@ -69,7 +87,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
-  publisher_id: 1,
+  user_id: 2,
 )
 Post.create(
   title: "Post02",
@@ -78,7 +96,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
-  publisher_id: 1,
+  user_id: 2,
 )
 Post.create(
   title: "Post03",
@@ -86,7 +104,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 2,
-  publisher_id: 1,
+  user_id: 2,
 )
 Post.create(
   title: "Post04",
@@ -94,7 +112,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
-  publisher_id: 1,
+  user_id: 3,
 )
 Post.create(
   title: "Post05",
@@ -102,7 +120,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 3,
-  publisher_id: 1,
+  user_id: 3,
 )
 Post.create(
   title: "Post06",
@@ -110,7 +128,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
-  publisher_id: 1,
+  user_id: 2,
 )
 Post.create(
   title: "Post07",
@@ -118,7 +136,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
-  publisher_id: 1,
+  user_id: 2,
 )
 Post.create(
   title: "Post08",
@@ -126,7 +144,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 4,
-  publisher_id: 1,
+  user_id: 2,
 )
 
 Post.create(
@@ -135,7 +153,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 2,
-  publisher_id: 2,
+  user_id: 2,
 )
 Post.create(
   title: "Post10",
@@ -143,7 +161,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 2,
-  publisher_id: 2,
+  user_id: 2,
 )
 
 Post.create(
@@ -152,7 +170,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 2,
-  publisher_id: 3,
+  user_id: 1,
 )
 
 Post.create(
@@ -161,7 +179,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 2,
-  publisher_id: 2,
+  user_id: 2,
 )
 
 Post.create(
@@ -170,7 +188,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
-  publisher_id: 2,
+  user_id: 3,
 )
 Post.create(
   title: "Post14",
@@ -178,7 +196,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
-  publisher_id: 2,
+  user_id: 3,
 )
 
 Post.create(
@@ -187,7 +205,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 1,
-  publisher_id: 3,
+  user_id: 3,
 )
 
 Post.create(
@@ -196,7 +214,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 4,
-  publisher_id: 3,
+  user_id: 3,
 )
 
 Post.create(
@@ -205,7 +223,7 @@ Post.create(
   content:
     "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
   category_id: 4,
-  publisher_id: 3,
+  user_id: 4,
 )
 
 puts "Posts created"
