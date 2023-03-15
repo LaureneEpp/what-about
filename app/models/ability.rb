@@ -6,37 +6,34 @@ class Ability
   def initialize(user)
     # Define abilities for the user here. For example:
     #
-    #   return unless user.present?
-    #   can :read, :all
-    #   return unless user.admin?
-    #   can :manage, :all
 
-    # can :update, Post, user: user
-    # can :read, Post, published: true
+    user ||= User.new #guest user
 
-    # return unless user.present?
+    # can :read, Post #all users (not logged in included) can read all posts
 
-    # can %i[read update], Post, user: user
+    # return unless user.publisher?
+
+    # can %i[create read update destroy], Post, user: user
 
     # return unless user.admin?
 
-    # can :manage, Post
-
-    # user ||= User.new # Guest user
+    # can :manage, :all
 
     if user.admin?
       can :manage, :all
     elsif user.publisher?
       can :read, Post
       can :create, Post
-      can :update, Post do |post|
-        post.try(:user) == user
-      end
-      can :destroy, Post do |post|
-        post.try(:user) == user
-      end
+      can :update, Post, user: user
+      # can :update, Post do |post|
+      #   post.try(:user) == user
+      # end
+      can :destroy, Post, user: user
+      can :manage, Comment, post: { user_id: user.id }
+      can %i[read create], Comment, :post
     elsif user.standard?
       can :read, Post
+      can %i[read create], Comment, :post
     end
 
     # The first argument to `can` is the action you are giving the user
@@ -50,9 +47,9 @@ class Ability
     #
     # The third argument is an optional hash of conditions to further filter the
     # objects.
-    # For example, here the user can only update published articles.
+    # For example, here the user can only update published Posts.
     #
-    #   can :update, Article, published: true
+    #   can :update, Post, published: true
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md

@@ -2,6 +2,9 @@ class CommentsController < ApplicationController
   before_action :set_post
   before_action :set_comment, only: %i[edit update destroy]
 
+  load_and_authorize_resource :posts
+  load_and_authorize_resource :comment, through: :post
+
   def new
     @comment = @post.comments.build
   end

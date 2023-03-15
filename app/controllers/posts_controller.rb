@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
   load_and_authorize_resource
 
@@ -26,8 +27,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     @comments = @post.comments.ordered
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    # @q = Post.ransack(params[:q])
+    # @posts = @q.result(distinct: true)
   end
 
   # GET /posts/new
@@ -62,14 +63,6 @@ class PostsController < ApplicationController
   end
 
   # PATCH/PUT /posts/1
-  # def update
-  #   if @post.update(post_params)
-  #     redirect_to post_path(@post), notice: "Post was successfully updated."
-  #   else
-  #     render :edit, status: :unprocessable_entity
-  #   end
-  # end
-
   def update
     if @post.update(post_params)
       respond_to do |format|
@@ -78,6 +71,7 @@ class PostsController < ApplicationController
         end
         format.turbo_stream do
           flash.now[:notice] = "Post was successfully updated."
+          redirect_to post_path(@post), notice: "Post was successfully updated."
         end
       end
     else
@@ -94,16 +88,8 @@ class PostsController < ApplicationController
       format.html do
         redirect_to quotes_path, notice: "Post was successfully destroyed."
       end
-      format.turbo_stream do
-        flash.now[:notice] = "Post was successfully destroyed."
-      end
+      format.turbo_stream {}
     end
-    # respond_to do |format|
-    #   format.html do
-    #     redirect_to posts_url, notice: "Post was successfully destroyed."
-    #   end
-    #   format.turbo_stream
-    # end
   end
 
   private

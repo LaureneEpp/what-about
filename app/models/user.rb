@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   # after_initialize :set_defaults
   before_save :assign_role
-  has_one :publisher
+  # has_one :publisher
   belongs_to :role, optional: true
   has_many :posts, dependent: :destroy
 
@@ -33,14 +33,14 @@ class User < ApplicationRecord
   end
 
   def publisher?
-    role.name == "publisher"
+    self.role.name == "publisher" if self.role.present?
   end
 
   def standard?
-    role.name == "standard"
+    self.role.name == "standard" if self.role.present?
   end
 
   def admin?
-    role.name == "Admin"
+    self.role.name == "admin" if self.role.present?
   end
 end
