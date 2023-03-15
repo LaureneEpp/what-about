@@ -88,9 +88,7 @@ class PostsController < ApplicationController
       format.html do
         redirect_to quotes_path, notice: "Post was successfully destroyed."
       end
-      format.turbo_stream do
-        redirect_to quotes_path, notice: "Post was successfully destroyed."
-      end
+      format.turbo_stream {}
     end
   end
 

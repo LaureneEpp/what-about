@@ -29,8 +29,11 @@ class Ability
       #   post.try(:user) == user
       # end
       can :destroy, Post, user: user
+      can :manage, Comment, post: { user_id: user.id }
+      can %i[read create], Comment, :post
     elsif user.standard?
       can :read, Post
+      can %i[read create], Comment, :post
     end
 
     # The first argument to `can` is the action you are giving the user
