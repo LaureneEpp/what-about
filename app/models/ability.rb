@@ -9,30 +9,29 @@ class Ability
 
     user ||= User.new #guest user
 
-    can :read, Post #all users (not logged in included) can read all posts
+    # can :read, Post #all users (not logged in included) can read all posts
 
-    return unless user.publisher?
+    # return unless user.publisher?
 
-    can %i[read update destroy], Post, user: user
+    # can %i[create read update destroy], Post, user: user
 
-    return unless user.admin?
+    # return unless user.admin?
 
-    can :manage, :all
+    # can :manage, :all
 
-    # if user.admin?
-    #   can :manage, :all
-    # elsif user.publisher?
-    #   can :read, Post
-    #   can :create, Post
-    #   can :update, Post do |post|
-    #     post.try(:user) == user
-    #   end
-    #   can :destroy, Post do |post|
-    #     post.try(:user) == user
-    #   end
-    # elsif user.standard?
-    #   can :read, Post
-    # end
+    if user.admin?
+      can :manage, :all
+    elsif user.publisher?
+      can :read, Post
+      can :create, Post
+      can :update, Post, user: user
+      # can :update, Post do |post|
+      #   post.try(:user) == user
+      # end
+      can :destroy, Post, user: user
+    elsif user.standard?
+      can :read, Post
+    end
 
     # The first argument to `can` is the action you are giving the user
     # permission to do.

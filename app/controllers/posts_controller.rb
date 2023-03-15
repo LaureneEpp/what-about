@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
   load_and_authorize_resource
-  skip_before_action :authenticate_user!, only: %i[index show]
 
   require "mini_magick"
 
@@ -27,8 +27,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     @comments = @post.comments.ordered
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    # @q = Post.ransack(params[:q])
+    # @posts = @q.result(distinct: true)
   end
 
   # GET /posts/new
@@ -65,20 +65,13 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "Post was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  def update
-    if @post.update(post_params)
       respond_to do |format|
         format.html do
           redirect_to post_path(@post), notice: "Post was successfully updated."
         end
         format.turbo_stream do
           flash.now[:notice] = "Post was successfully updated."
+          redirect_to post_path(@post), notice: "Post was successfully updated."
         end
       end
     else
@@ -96,7 +89,7 @@ class PostsController < ApplicationController
         redirect_to quotes_path, notice: "Post was successfully destroyed."
       end
       format.turbo_stream do
-        flash.now[:notice] = "Post was successfully destroyed."
+        redirect_to quotes_path, notice: "Post was successfully destroyed."
       end
     end
   end
