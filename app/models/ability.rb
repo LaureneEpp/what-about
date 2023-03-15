@@ -6,46 +6,33 @@ class Ability
   def initialize(user)
     # Define abilities for the user here. For example:
     #
-    #   return unless user.present?
-    #   can :read, :all
-    #   return unless user.admin?
+
+    user ||= User.new #guest user
+
+    can :read, Post #all users (not logged in included) can read all posts
+
+    return unless user.publisher?
+
+    can %i[read update destroy], Post, user: user
+
+    return unless user.admin?
+
+    can :manage, :all
+
+    # if user.admin?
     #   can :manage, :all
-
-    # can :update, Post, user: user
-    # can :read, Post, published: true
-
-    # return unless user.present?
-
-    # can %i[read update], Post, user: user
-
-    # return unless user.admin?
-
-    # can :manage, Post
-
-    # user ||= User.new # Guest user
-
-    # can :read, Post, public: true
-
-    # return unless user.present? # additional permissions for logged in users (they can read their own posts)
-    # can :read, Post, user: user
-
-    # return unless user.admin? # additional permissions for administrators
-    # can :read, Post
-
-    if user.admin?
-      can :manage, :all
-    elsif user.publisher?
-      can :read, Post
-      can :create, Post
-      can :update, Post do |post|
-        post.try(:user) == user
-      end
-      can :destroy, Post do |post|
-        post.try(:user) == user
-      end
-    elsif user.standard?
-      can :read, Post, public: true
-    end
+    # elsif user.publisher?
+    #   can :read, Post
+    #   can :create, Post
+    #   can :update, Post do |post|
+    #     post.try(:user) == user
+    #   end
+    #   can :destroy, Post do |post|
+    #     post.try(:user) == user
+    #   end
+    # elsif user.standard?
+    #   can :read, Post
+    # end
 
     # The first argument to `can` is the action you are giving the user
     # permission to do.
@@ -58,9 +45,9 @@ class Ability
     #
     # The third argument is an optional hash of conditions to further filter the
     # objects.
-    # For example, here the user can only update published articles.
+    # For example, here the user can only update published Posts.
     #
-    #   can :update, Article, published: true
+    #   can :update, Post, published: true
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
