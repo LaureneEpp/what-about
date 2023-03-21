@@ -7,7 +7,7 @@ class Ability
     # Define abilities for the user here. For example:
     #
 
-    user ||= User.new #guest user
+    user ||= User.new # guest user (not logged in)
 
     # can :read, Post #all users (not logged in included) can read all posts
 
@@ -21,6 +21,8 @@ class Ability
 
     if user.admin?
       can :manage, :all
+      can :access, :rails_admin # only allow admin users to access Rails Admin
+      can :manage, :dashboard # allow a
     elsif user.publisher?
       can :read, Post
       can :create, Post
