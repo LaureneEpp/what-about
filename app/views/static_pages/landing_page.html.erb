@@ -10,9 +10,8 @@
             <div class="container-btns">
                 <%= link_to "Log in", new_user_session_path, class:"btn-first b1" %>
                 <%= link_to "Sign up", new_user_registration_path, class:"btn-first b2"%>
-                <% if can? :read, Post %>
                 <%= link_to "Discover", posts_path, class:"btn-first b3" %>
-                <% end %>
+        
             </div>
         </div>
 

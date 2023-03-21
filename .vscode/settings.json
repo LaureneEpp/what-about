@@ -25,7 +25,7 @@
   "ruby.rubocop.useBundler": true,
   "prettier.bracketSameLine": true,
   "workbench.editor.enablePreview": false,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "eslint.format.enable": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 }

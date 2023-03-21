@@ -17,12 +17,11 @@
     display: inline-flex;
     flex-direction: row;
   }
-  .title, .subtitle, .date {
-    &:hover {
-      text-decoration: none;
-      color: $cornsilk;
-    }
+  a:hover {
+    text-decoration: none;
+    color: $cornsilk;
   }
+
 
   .title, .subtitle {
     font-weight: bold;
