@@ -18,18 +18,16 @@ class Ability
     # return unless user.admin?
 
     # can :manage, :all
+    can :read, Post if User.new
 
     if user.admin?
       can :manage, :all
-      can :access, :rails_admin # only allow admin users to access Rails Admin
-      can :manage, :dashboard # allow a
+      # can :access, :rails_admin # only allow admin users to access Rails Admin
+      # can :manage, :dashboard # allow a
     elsif user.publisher?
       can :read, Post
       can :create, Post
       can :update, Post, user: user
-      # can :update, Post do |post|
-      #   post.try(:user) == user
-      # end
       can :destroy, Post, user: user
       can :manage, Comment, post: { user_id: user.id }
       can %i[read create], Comment, :post
