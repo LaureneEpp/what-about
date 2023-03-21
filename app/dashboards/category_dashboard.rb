@@ -7,13 +7,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   # Each different type represents an Administrate::Field object,
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
-  ATTRIBUTE_TYPES = {
-    id: Field::Number,
-    name: Field::String,
-    posts: Field::HasMany,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-  }.freeze
+  ATTRIBUTE_TYPES = { name: Field::String, posts: Field::HasMany }.freeze
 
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
@@ -24,7 +18,7 @@ class CategoryDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = %i[id name posts created_at updated_at].freeze
+  SHOW_PAGE_ATTRIBUTES = %i[name posts].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
