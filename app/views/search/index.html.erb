@@ -2,6 +2,7 @@
     <div class="search-title">
         <h2><%= pluralize(@posts.count, "Result") %></h2>
     </div>
+    <% if @posts.present? %>
     <div class="table-results table-responsive">
         <table class="table table-bordered table-striped table-hover align-middle">
             <thead>
@@ -22,4 +23,6 @@
             </tbody>
         </table>
     </div>
+      
+    <% end %>
 </div>
