@@ -18,7 +18,7 @@ class Ability
     # return unless user.admin?
 
     # can :manage, :all
-    can :read, Post if User.new
+    can :read, Post if User.new # guest user (not logged in)
 
     if user.admin?
       can :manage, :all
