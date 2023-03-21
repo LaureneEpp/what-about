@@ -41,7 +41,8 @@ gem 'friendly_id', '~> 5.4.0'
 # Use authorisation gems
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'cancancan'
-gem 'activeadmin'
+gem "administrate"
+# gem 'activeadmin'
 # gem 'rails_admin', '~> 3.0'
 
 # Search Engine

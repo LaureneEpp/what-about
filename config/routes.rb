@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :posts
+    resources :roles
+    resources :comments
+    # resources :publishers
+    resources :categories
+
+    root to: "posts#index"
+  end
   get "search", to: "search#index"
   # get "users/index"
   # get "users/show"
