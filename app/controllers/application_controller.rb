@@ -8,13 +8,9 @@ class ApplicationController < ActionController::Base
     @posts = @q.result(distinct: true)
   end
 
-  rescue_from CanCan::AccessDenied do
-    flash[:error] = "Access denied!"
-    redirect_to root_url
-  end
-
-  def access_denied(exception)
-    redirect_to admin_organizations_path, alert: exception.message
+  # Catch all CanCan errors and alert the user of the exception
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
   end
 
   # rescue_from CanCan::AccessDenied do |exception|

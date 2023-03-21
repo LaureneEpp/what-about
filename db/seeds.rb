@@ -230,4 +230,3 @@ puts "Posts created"
 
 # puts "\n== Seeding the database with fixtures =="
 # system("bin/rails db:fixtures:load")
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
