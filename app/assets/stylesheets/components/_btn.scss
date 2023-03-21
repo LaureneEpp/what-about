@@ -35,6 +35,14 @@
   border-radius: 0;
 }
 
+.btn-search {
+  background-color: transparent;
+  padding: 10px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 5px;
+}
+
 .btn-cancel {
   color: $tyrian-purple;
   border-color: $tyrian-purple;
@@ -44,12 +52,12 @@
   color: $cornsilk;
 }
 
-.btn-create {
+.btn-create, .btn-search {
   color: $brunswick-green;
   border-color: $brunswick-green;
 }
 
-.btn-create:hover {
+.btn-create:hover, .btn-search:hover {
   background: $brunswick-green;
   color: $cornsilk;
 }
