@@ -40,3 +40,19 @@
     font-weight: normal;
   }
 }
+
+#category-index {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+
+  .category-title {
+    margin: 10px 50px 20px 0;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+
+  hr {
+    border-top: 1px solid $cornsilk;
+  }
+}

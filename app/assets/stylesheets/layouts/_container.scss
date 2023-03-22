@@ -27,12 +27,13 @@
   }
 }
 
-.container-form,
 .container-account,
-.container-posts,
+.container-categories,
 .container-comment,
-.container-table,
-.container-dashboard {
+.container-dashboard, 
+.container-form,
+.container-posts,
+.container-table {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,10 +41,11 @@
   height: 100%;
 }
 
-.container-form,
 .container-account,
-.container-posts,
-.container-dashboard 
+.container-categories,
+.container-dashboard, 
+.container-form,
+.container-posts
  {
   min-height: 100vh;
   padding-bottom: 30px;

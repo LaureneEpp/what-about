@@ -22,11 +22,12 @@ Rails.application.routes.draw do
                sessions: "users/sessions",
                registrations: "users/registrations",
              }
-  scope "/admin" do
-    resources :users, only: %i[show index]
-    # resources :users
-  end
+  # scope "/admin" do
+  #   resources :users, only: %i[show index]
+  #   # resources :users
+  # end
   resources :posts do
     resources :comments
   end
+  resources :categories, only: %i[index]
 end
