@@ -27,6 +27,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     @comments = @post.comments.ordered
+    # authorize! :read, @post
+    # authorize! :create, @post, Comment
     # @q = Post.ransack(params[:q])
     # @posts = @q.result(distinct: true)
   end

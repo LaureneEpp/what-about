@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.build(comment_params)
+    authorize! :create, @comment
 
     if @comment.save
       respond_to do |format|

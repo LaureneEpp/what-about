@@ -5,10 +5,6 @@ class Ability
 
   def initialize(user)
     # Define abilities for the user here. For example:
-    #
-
-    user ||= User.new # guest user (not logged in)
-
     # can :read, Post #all users (not logged in included) can read all posts
 
     # return unless user.publisher?
@@ -18,22 +14,21 @@ class Ability
     # return unless user.admin?
 
     # can :manage, :all
+    user ||= User.new # guest user (not logged in)
     can :read, Post if User.new # guest user (not logged in)
 
     if user.admin?
       can :manage, :all
-      # can :access, :rails_admin # only allow admin users to access Rails Admin
-      # can :manage, :dashboard # allow a
     elsif user.publisher?
       can :read, Post
       can :create, Post
       can :update, Post, user: user
       can :destroy, Post, user: user
       can :manage, Comment, post: { user_id: user.id }
-      can %i[read create], Comment, :post
     elsif user.standard?
-      can :read, Post
+      can :read, Post #all users (not logged in included) can read all posts
       can %i[read create], Comment, :post
+      can :update, Comment, user: user
     end
 
     # The first argument to `can` is the action you are giving the user
