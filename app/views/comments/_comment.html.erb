@@ -2,7 +2,10 @@
   <div class="comment">
     <div class="comment-header">
       <h4 class="comment-title">
+      <%= turbo_frame_tag comment do %>
         <%= link_to comment.name, post_comment_path(@post, comment) %> | <%= comment.created_at.strftime("%d/%m/%Y") %>
+
+      <% end %>
       </h4>
         <div class="comment-actions">
           <% if can? :update, @post => Comment %>
