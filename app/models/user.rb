@@ -8,13 +8,14 @@ class User < ApplicationRecord
          :validatable
 
   extend FriendlyId
-  friendly_id :username, use: :slugged
+  friendly_id :username
 
   # after_initialize :set_defaults
   before_save :assign_role
   # has_one :publisher
   belongs_to :role, optional: true
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
   validates :username,

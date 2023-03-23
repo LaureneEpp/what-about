@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_post, only: %i[show edit update destroy]
   load_and_authorize_resource
+  before_action :set_post, only: %i[show edit update destroy]
 
   require "mini_magick"
 
@@ -18,17 +18,12 @@ class PostsController < ApplicationController
     #           post.category.name.downcase.include?(search_term)
     #       end
     # end
-
-    # @q = Post.ransack(params[:q])
-    # @posts = @q.result(distinct: true)
     @posts = Post.all.order("created_at DESC")
   end
 
   # GET /posts/1
   def show
     @comments = @post.comments.ordered
-    # @q = Post.ransack(params[:q])
-    # @posts = @q.result(distinct: true)
   end
 
   # GET /posts/new
@@ -41,10 +36,8 @@ class PostsController < ApplicationController
   end
 
   # POST /posts
-
   def create
     @post = Post.new(post_params)
-    # @post.publisher_id = current_user.publisher.id
     @post.user_id = current_user.id
 
     if @post.save
@@ -108,7 +101,7 @@ class PostsController < ApplicationController
       :image,
       :user_id,
       :category_id,
-      :image,
+      :user_id,
     )
   end
 end
