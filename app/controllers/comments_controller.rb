@@ -2,17 +2,15 @@ class CommentsController < ApplicationController
   load_and_authorize_resource :post
   load_and_authorize_resource :comment, through: :post
   before_action :set_post
-  before_action :set_comment, only: %i[create edit update destroy]
+  before_action :set_comment, only: %i[edit update destroy]
 
   def new
-    # @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.build
   end
 
   def create
-    # @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
-    authorize! :create, @comment
+    @comment.user_id = current_user.id
 
     if @comment.save
       respond_to do |format|
@@ -22,9 +20,10 @@ class CommentsController < ApplicationController
         end
         format.turbo_stream do
           flash.now[:notice] = "Comment was successfully created."
+          redirect_to post_path(@post),
+                      notice: "Comment was successfully updated."
         end
       end
-      redirect_to post_path(@post), notice: "Comment was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -59,6 +58,8 @@ class CommentsController < ApplicationController
       end
       format.turbo_stream do
         flash.now[:notice] = "Comment was successfully destroyed."
+        redirect_to post_path(@post),
+                    notice: "Comment was successfully destroyed."
       end
     end
   end

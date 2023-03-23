@@ -29,6 +29,7 @@ class Ability
       can :read, Post #all users (not logged in included) can read all posts
       can :create, Comment, :post
       can :update, Comment, user: user
+      can :destroy, Comment, user: user
     end
 
     # The first argument to `can` is the action you are giving the user
