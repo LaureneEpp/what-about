@@ -7,4 +7,8 @@
 
 .comment-title {
   color: $cornsilk;
+  a:hover {
+    text-decoration: none;
+    color: $cornsilk;
+  }
 }

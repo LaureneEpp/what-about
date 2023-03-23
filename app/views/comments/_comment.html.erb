@@ -2,7 +2,7 @@
   <div class="comment">
     <div class="comment-header">
       <h4 class="comment-title">
-        <%= comment.user.fullname %> | <%= comment.created_at.strftime("%d/%m/%Y") %>
+        <%= link_to comment.name, post_comment_path(@post, comment) %> | <%= comment.created_at.strftime("%d/%m/%Y") %>
       </h4>
         <div class="comment-actions">
           <% if can? :update, @post => Comment %>

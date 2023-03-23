@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     resources :posts
     resources :roles
     resources :comments
-    # resources :publishers
     resources :categories
 
     root to: "posts#index"
@@ -22,10 +21,6 @@ Rails.application.routes.draw do
                sessions: "users/sessions",
                registrations: "users/registrations",
              }
-  # scope "/admin" do
-  #   resources :users, only: %i[show index]
-  #   # resources :users
-  # end
   resources :posts do
     resources :comments
   end
