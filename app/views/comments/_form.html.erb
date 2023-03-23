@@ -2,17 +2,20 @@
   <div class="post-form-title">
     <h3>What do you want to say?</h3>
   </div>
-  <div class="form form-comment">
+  <div class="simple-form form-comment">
     <%= simple_form_for [post, comment], html: { class: "comment_form" } do |f| %>
       <%= form_error_notification(comment) %>
 
-      <%= f.input :post_id, as: :hidden, value: @post %> 
-      <%= f.input :user_id, as: :hidden, value: current_user.id %> 
-      <%= f.input :name, input_html: { autofocus: true } %>
-      <%= f.input :body, input_html: { autofocus: true } %>
-
-      <%= f.submit 'Create', class: "btn btn-update mt-4" %>
-      <%= link_to 'Cancel', post_path(@post), class:"btn btn-cancel mx-3" %>
+      <div class="form-inputs">
+        <%= f.input :post_id, as: :hidden, value: @post %> 
+        <%= f.input :user_id, as: :hidden, value: current_user.id %> 
+        <%= f.input :name, input_html: { autofocus: true } %>
+        <%= f.input :body, input_html: { autofocus: true } %>
+      </div>
+      <div class="form-action">
+        <%= f.submit 'Create', class: "btn btn-create" %>
+        <%= link_to 'Cancel', post_path(@post), class:"btn btn-cancel" %>
+      </div>
     <% end %>
   </div>
 </div>
