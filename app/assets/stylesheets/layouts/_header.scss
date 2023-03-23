@@ -18,6 +18,10 @@
     background-color: $gold;
   }
 
+  .admin {
+    background: $red-patone;
+  }
+
   @media (max-width: 991px) {
     #navbarText {
       background-color: #004643;

@@ -8,7 +8,7 @@
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <% if current_user.admin? %>
-            <%= link_to "Admin Panel", admin_root_path, class:"nav-item nav-link me-4" %>
+            <%= link_to "Admin Panel", admin_root_path, class:"nav-item nav-link admin me-4" %>
           <% end %>
           <%= link_to "Posts", posts_path, class: "nav-item nav-link me-4" %>
           <%= link_to "Categories", categories_path, class: "nav-item nav-link me-4" %>
