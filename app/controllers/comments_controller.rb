@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   load_and_authorize_resource :post
   load_and_authorize_resource :comment, through: :post
   before_action :set_post
-  before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_comment, only: %i[show edit update destroy]
 
   def new
     @comment = @post.comments.build
@@ -41,6 +41,8 @@ class CommentsController < ApplicationController
         end
         format.turbo_stream do
           flash.now[:notice] = "Comment was successfully updated."
+          redirect_to post_path(@post),
+                      notice: "Comment was successfully updated."
         end
       end
     else
