@@ -1,16 +1,17 @@
 class CommentsController < ApplicationController
-  before_action :set_post
-  before_action :set_comment, only: %i[edit update destroy]
-
-  load_and_authorize_resource :posts
+  load_and_authorize_resource :post
   load_and_authorize_resource :comment, through: :post
+  before_action :set_post
+  before_action :set_comment, only: %i[create edit update destroy]
 
   def new
+    # @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.build
   end
 
   def create
-    @comment = @post.comments.build(comment_params)
+    # @post = Post.friendly.find(params[:post_id])
+    @comment = @post.comments.new(comment_params)
     authorize! :create, @comment
 
     if @comment.save
@@ -73,6 +74,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:name, :body)
+    params.require(:comment).permit(:name, :body, :user_id, :post_id)
   end
 end

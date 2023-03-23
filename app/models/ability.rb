@@ -27,7 +27,7 @@ class Ability
       can :manage, Comment, post: { user_id: user.id }
     elsif user.standard?
       can :read, Post #all users (not logged in included) can read all posts
-      can %i[read create], Comment, :post
+      can :create, Comment, :post
       can :update, Comment, user: user
     end
 

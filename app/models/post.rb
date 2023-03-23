@@ -1,9 +1,8 @@
 class Post < ApplicationRecord
   extend FriendlyId
-  friendly_id :username, use: :slugged
+  friendly_id :title
 
   belongs_to :category
-  # belongs_to :publisher
   belongs_to :user
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_limit: [500, 500]
@@ -21,8 +20,6 @@ class Post < ApplicationRecord
   validates :state, inclusion: { in: %w[draft published] }
   validates :publisher, presence: true, if: :published?
   validates :published_at, presence: true, if: :published?
-
-  friendly_id :title, use: [:slugged]
 
   def published?
     state == "published"

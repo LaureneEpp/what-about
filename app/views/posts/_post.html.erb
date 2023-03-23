@@ -2,7 +2,7 @@
   <div class="col">
     <div class="card-image">
         <% if can? :read, post %>
-          <%= link_to post_path(post.id), data: { turbo_frame: "_top" } do %>
+          <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>
             <% if post.image.present? %>
               <%= image_tag post.image.variant(:thumb), class:"img-fluid img-thumbnail" %>
             <% else %>
@@ -13,7 +13,7 @@
       <div class="card-information">
         <div class="card-title">
           <% if can? :read, post %>
-            <%= link_to post_path(post.id), data: { turbo_frame: "_top" } do %>
+            <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>
               <h3 class="title"><%= post.title.upcase %></h3>
             <% end %>
           <% end %>
@@ -26,7 +26,7 @@
           <% end %>
         </div>
         <% if can? :read, post %>
-          <%= link_to post_path(post.id), data: { turbo_frame: "_top" } do %>
+          <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>
             <h4 class="subtitle"><%= post.category.name %></h4>
             <p class="date"><%= post.created_at.strftime("%d/%m/%Y")%></p>
           <% end %>

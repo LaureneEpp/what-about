@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :validatable
 
   extend FriendlyId
-  friendly_id :username, use: :slugged
+  friendly_id :username
 
   # after_initialize :set_defaults
   before_save :assign_role
