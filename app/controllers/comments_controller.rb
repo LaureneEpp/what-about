@@ -41,6 +41,8 @@ class CommentsController < ApplicationController
         end
         format.turbo_stream do
           flash.now[:notice] = "Comment was successfully updated."
+          redirect_to post_path(@post),
+                      notice: "Comment was successfully updated."
         end
       end
     else
