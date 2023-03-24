@@ -25,4 +25,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :categories, only: %i[index]
+  resources :rooms
+  get "user/:id", to: "users#show", as: "user"
+  # resources :users, only: %i[:index :show]
 end
