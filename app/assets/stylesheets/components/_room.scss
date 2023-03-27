@@ -1,32 +1,40 @@
 #single-room {
-  height: calc(100vh - 150px);
+  // height: calc(100vh - 150px);
 }
 #messages {
-  height: calc(100vh - 150px);
+  // height: calc(100vh - 150px);
   overflow-x: scroll;
   overflow-y: scroll;
+  height: 80%;
+  overflow: scroll;
+  scroll-behavior: auto;
 }
 #room_container {
-  height: 100vh;
+  // height: 100vh;
+  max-height: 100vh;
+  height: 100%;
   margin-right: 0px !important;
-  padding: 30px 30px 30px 30px
+  padding: 30px 30px 30px 30px;
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 #side_panel {
-  height: 100vh;
+  // height: 100vh;
+  // height: 100%;
   margin-right: 0px !important;
   overflow-x: scroll;
   overflow-y: scroll;
-  margin-bottom: 55px;
+  // margin-bottom: 55px;
   padding: 30px 30px 30px 30px;
   background-color: $gold;
 
   a {
     &:hover {
-    text-decoration: none;
-    color: $cornsilk;
+      text-decoration: none;
+      color: $cornsilk;
+    }
   }
-}
 
   .panel-title {
     h3 {
