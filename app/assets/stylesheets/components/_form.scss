@@ -10,7 +10,7 @@
 .simple_form {
   input,
   label {
-    color: $rich-black;
+    // color: $rich-black;
   }
   input {
     margin: 5px auto 0px auto;
@@ -72,4 +72,9 @@
       align-items: flex-end;
     }
   }
+}
+.msg-form {
+  width: 100%;
+  height: 56px;
+  padding: 10px; 
 }

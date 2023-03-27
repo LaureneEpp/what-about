@@ -7,15 +7,19 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
+  scope :all_except, ->(user) { where.not(id: user) }
+  after_create_commit { broadcast_append_to "users" }
+
   extend FriendlyId
   friendly_id :username
 
   # after_initialize :set_defaults
   before_save :assign_role
-  # has_one :publisher
+
   belongs_to :role, optional: true
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :messages
 
   validates :first_name, :last_name, presence: true
   validates :username,
