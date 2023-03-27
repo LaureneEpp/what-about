@@ -9,8 +9,6 @@ Rails.application.routes.draw do
     root to: "posts#index"
   end
   get "search", to: "search#index"
-  # get "users/index"
-  # get "users/show"
 
   #available for anyone – in our example app it can
   root "static_pages#landing_page"
@@ -25,7 +23,9 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :categories, only: %i[index]
-  resources :rooms
+  resources :rooms do
+    resources :messages
+  end
   get "user/:id", to: "users#show", as: "user"
   # resources :users, only: %i[:index :show]
 end
