@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     root to: "posts#index"
   end
   get "search", to: "search#index"
+  # get "private_chat", to: "users#private_chat"
 
   #available for anyone – in our example app it can
   root "static_pages#landing_page"
