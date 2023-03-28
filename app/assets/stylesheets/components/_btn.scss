@@ -1,19 +1,17 @@
 .btn-first {
   border: 2px solid $brunswick-green;
   outline: none;
-  // background: transparent;
   background-color: $brunswick-green;
-  // color: $brunswick-green;
   color: $cornsilk;
   font-size: 30px;
   padding: 20px;
   margin-top: 15px;
   width: 300px;
-  // cursor: pointer;
 }
 
 .btn-first:nth-child(1), .b1, .b2, .b3 {
   margin-right: 30px;
+  text-align: center;
 }
 
 .btn-first:hover {
