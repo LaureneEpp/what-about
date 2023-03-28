@@ -1,11 +1,36 @@
-<div class="container container-account">
+<div class="container container-profile">
     <div class="row">
-        <div class="col-8">
+        <div class="profile-avatar">
+            <% if @user.avatar.attached? %>
+                <%= image_tag @user.avatar, style:"width: 200px; height: 200px; border-radius: 100%", class:"rounded-circle"  %>
+            <% else %>
+              <%= image_tag("anonymous.jpg", alt: "default", size: '200x200', class:"rounded-circle") %>
+            <% end %>
+        </div>
+        <div class="profile-title">
+            <h2>Profile</h2>
+        </div>
+        <div class="profile-information">
             <h3><%= @user.fullname %></h3>
             <h6>
-                <%= pluralize(@posts, "Posts") %>
+                <%= pluralize(@posts_count, "Posts") %>
             </h6>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <% @posts.each do |post| %>
+                <div class="card card-post-profile mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title fs-3 fw-bold text-uppercase"><%= link_to post.title, post %></h5>
+                        <p class="card-text fs-6"><%= "#{time_ago_in_words(post.created_at)} ago" %></p>
+                        <p class="card-text fs-6 lh-base"><%= post.content.truncate_words(50) %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="col-1"></div>
+    </div>
 </div>

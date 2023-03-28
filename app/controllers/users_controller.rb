@@ -21,7 +21,9 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.friendly.find(params[:id])
-    @posts = Post.where(user_id: @user).count
+    @user.avatar.attach(params[:avatar])
+    @posts_count = Post.where(user_id: @user).count
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   private
