@@ -1,6 +1,12 @@
 .container-btns {
   position: relative;
   top: 50px;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+  }
 }
 
 .container-first {
