@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   get "user/:id", to: "users#show", as: "user"
+  # get "users/:id", to: "users#profile", as: "profile"
+  get "profile/:id", action: :profile, controller: "users"
   # resources :users, only: %i[:index :show]
 end

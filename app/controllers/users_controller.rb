@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     render "rooms/index"
   end
 
+  def profile
+    @user = User.friendly.find(params[:id])
+    @posts = Post.where(user_id: @user).count
+  end
+
   private
 
   def get_name(user1, user2)
