@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :roles
     resources :comments
     resources :categories
+    resources :rooms
 
     root to: "posts#index"
   end
