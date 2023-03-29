@@ -20,16 +20,13 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.publisher?
-      can :read, Post
-      can :create, Post
-      can :update, Post, user: user
-      can :destroy, Post, user: user
+      can %i[read create], Post
+      can %i[update destroy], Post, user: user
       can :manage, Comment, post: { user_id: user.id }
     elsif user.standard?
       can :read, Post #all users (not logged in included) can read all posts
       can :create, Comment, :post
-      can :update, Comment, user: user
-      can :destroy, Comment, user: user
+      can %i[update destroy], Comment, user: user
     end
 
     # The first argument to `can` is the action you are giving the user
