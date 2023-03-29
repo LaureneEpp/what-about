@@ -2,9 +2,10 @@ class Room < ApplicationRecord
   scope :public_rooms, -> { where(is_private: false) }
   # after_create_commit { broadcast_append_to "rooms" }
   after_create_commit { broadcast_if_public }
+  after_destroy_commit { broadcast_remove_to "rooms" }
 
   validates_uniqueness_of :name
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :participants, dependent: :destroy
 
   def broadcast_if_public
