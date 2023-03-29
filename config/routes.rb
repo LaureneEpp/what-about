@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   end
   get "user/:id", to: "users#show", as: "user"
   # get "users/:id", to: "users#profile", as: "profile"
-  get "profile/:id", action: :profile, controller: "users"
+  # get "profile/:id", action: :profile, controller: "users"
+  get "profile/:id", to: "users#profile", as: :profile
   # resources :users, only: %i[:index :show]
 end
