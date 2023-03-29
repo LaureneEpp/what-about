@@ -7,7 +7,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @single_room = Room.find(params[:id])
+    @single_room = Room.friendly.find(params[:id])
 
     @room = Room.new
     @rooms = Room.public_rooms

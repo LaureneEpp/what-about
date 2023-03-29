@@ -4,6 +4,9 @@ class Room < ApplicationRecord
   after_create_commit { broadcast_if_public }
   after_destroy_commit { broadcast_remove_to "rooms" }
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   validates_uniqueness_of :name
   has_many :messages, dependent: :destroy
   has_many :participants, dependent: :destroy
