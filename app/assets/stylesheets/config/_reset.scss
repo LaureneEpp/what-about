@@ -81,4 +81,8 @@ h5 {
 a {
   color: $cornsilk;
   text-decoration: none;
+
+  &:hover {
+    color: $cornsilk
+  }
 }
