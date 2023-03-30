@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show profile account]
+
   def index
     @users = User.all
   end
 
   def show
-    @user = User.friendly.find(params[:id])
     @users = User.friendly.all.excluding(current_user)
 
     @room = Room.new
@@ -20,13 +21,20 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.friendly.find(params[:id])
     @user.avatar.attach(params[:avatar])
     @posts_count = Post.where(user_id: @user).count
     @posts = @user.posts.order(created_at: :desc)
   end
 
+  def account
+    @posts = @user.posts.order(created_at: :desc)
+  end
+
   private
+
+  def set_user
+    @user = User.friendly.find(params[:id])
+  end
 
   def get_name(user1, user2)
     user = [user1, user2].sort

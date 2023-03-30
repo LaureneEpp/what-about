@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/account'
   namespace :admin do
     resources :users
     resources :posts
@@ -28,8 +29,6 @@ Rails.application.routes.draw do
     resources :messages
   end
   get "user/:id", to: "users#show", as: "user"
-  # get "users/:id", to: "users#profile", as: "profile"
-  # get "profile/:id", action: :profile, controller: "users"
   get "profile/:id", to: "users#profile", as: :profile
-  # resources :users, only: %i[:index :show]
+  get "account/:id", to: "users#account", as: :account
 end
