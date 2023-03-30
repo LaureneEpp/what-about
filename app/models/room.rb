@@ -5,7 +5,7 @@ class Room < ApplicationRecord
   after_destroy_commit { broadcast_remove_to "rooms" }
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: %i[finders slugged]
 
   validates_uniqueness_of :name
   has_many :messages, dependent: :destroy
@@ -21,5 +21,9 @@ class Room < ApplicationRecord
       Participant.create(user_id: user.id, room_id: single_room.id)
     end
     single_room
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed?
   end
 end

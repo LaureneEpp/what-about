@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   extend FriendlyId
-  friendly_id :title
+  friendly_id :title, use: %i[finders slugged]
 
   belongs_to :category
   belongs_to :user
@@ -23,6 +23,10 @@ class Post < ApplicationRecord
 
   def published?
     state == "published"
+  end
+
+  def should_generate_new_friendly_id?
+    title_changed?
   end
 
   def self.ransackable_attributes(auth_object = nil)

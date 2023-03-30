@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.friendly.all.excluding(current_user)
+    @users = User.all.excluding(current_user)
 
     @room = Room.new
     @rooms = Room.public_rooms
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.friendly.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def get_name(user1, user2)
