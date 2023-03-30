@@ -1,0 +1,36 @@
+<div class="container container-form-account">
+    <div class="container-account">
+        <div class="profile-avatar">
+            <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar, style:"width: 200px; height: 200px; border-radius: 100%", class:"rounded-circle"  %>
+            <% else %>
+              <%= image_tag("anonymous.jpg", alt: "default", size: '200x200', class:"rounded-circle") %>
+            <% end %>
+        </div>
+        <div class="profile-title">
+            <h2 class="d-flex">Your account
+            <%= link_to edit_user_registration_path, class:"icon-edit" do %>
+              <i class="bi bi-pencil-square"></i>
+            <% end %></h2>
+
+        </div>
+        <div class="profile-information">
+            <div class="row w-100">
+                <div class="col w-50 mx-2 my-3 d-flex justify-content-start fw-bold">First name</div>
+                <div class="col w-50 mx-2 my-3 d-flex justify-content-start  text-break"><%= current_user.first_name %></div>
+            </div>
+            <div class="row w-100">
+                <div class="col w-50 mx-2 my-3 d-flex justify-content-start fw-bold">Last name</div>
+                <div class="col w-50 mx-2 my-3 d-flex justify-content-start  text-break"><%= current_user.last_name %></div>
+            </div>
+            <div class="row w-100">
+                <div class="col w-50 mx-2 my-3 d-flex justify-content-start fw-bold">Username</div>
+                <div class="col w-50 mx-2 my-3 d-flex justify-content-start text-break"><%= current_user.username %></div>
+            </div>
+            <div class="row w-100">
+                <div class="col w-50 mx-2 my-3 d-flex justify-content-start fw-bold">Email</div>
+                <div class="col w-50 mx-2 my-3 d-flex justify-content-start  text-break "><%= current_user.email %></div>
+            </div>
+        </div>
+    </div>
+</div>
