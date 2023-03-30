@@ -23,6 +23,7 @@
 .btn-cancel,
 .btn-create,
 .btn-delete,
+.btn-info,
 .btn-update {
   background-color: transparent;
   margin-top: 20px;
@@ -41,11 +42,11 @@
   border-radius: 5px;
 }
 
-.btn-cancel {
+.btn-cancel, .btn-info {
   color: $tyrian-purple;
   border-color: $tyrian-purple;
 }
-.btn-cancel:hover {
+.btn-cancel:hover, .btn-info:hover {
   background: $tyrian-purple;
   color: $cornsilk;
 }
