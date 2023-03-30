@@ -3,11 +3,11 @@ class RoomsController < ApplicationController
   def index
     @room = Room.new
     @rooms = Room.public_rooms
-    @users = User.friendly.all.excluding(current_user)
+    @users = User.all.excluding(current_user)
   end
 
   def show
-    @single_room = Room.friendly.find(params[:id])
+    @single_room = Room.find(params[:id])
 
     @room = Room.new
     @rooms = Room.public_rooms
@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
 
-    @users = User.friendly.all.excluding(current_user)
+    @users = User.all.excluding(current_user)
     render "index"
   end
 

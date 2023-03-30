@@ -11,7 +11,7 @@ class User < ApplicationRecord
   after_create_commit { broadcast_append_to "users" }
 
   extend FriendlyId
-  friendly_id :username
+  friendly_id :username, use: %i[finders slugged]
 
   # after_initialize :set_defaults
   before_save :assign_role
@@ -48,5 +48,9 @@ class User < ApplicationRecord
 
   def admin?
     self.role.name == "admin" if self.role.present?
+  end
+
+  def should_generate_new_friendly_id?
+    username_changed?
   end
 end
