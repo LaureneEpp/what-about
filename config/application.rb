@@ -14,7 +14,9 @@ module WhatAbout
       "CanCan::AccessDenied" => :unauthorized,
     )
 
-    config.serve_static_assets = true
+    # config.serve_static_assets = true
+
+    config.assets.css_compressor = nil
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
