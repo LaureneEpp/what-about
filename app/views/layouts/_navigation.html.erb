@@ -19,7 +19,10 @@
       <ul class="navbar-nav mb-2 mb-lg-0">
         <% if user_signed_in? %>
           <%= link_to current_user.username, account_path(current_user), class: "nav-item nav-link fs-5" %>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "nav-item nav-link fs-5" %>
+          <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "nav-item nav-link fs-5 icon-delete" do %>
+            <i class="bi bi-box-arrow-right"></i>
+          <% end %>
+          
         <% end %>
       </ul>
     </div>
