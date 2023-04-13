@@ -111,9 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_223205) do
     t.text "content"
     t.string "slug"
     t.bigint "user_id"
-    t.bigint "publisher_id"
     t.index ["category_id"], name: "index_posts_on_category_id"
-    t.index ["publisher_id"], name: "index_posts_on_publisher_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -171,7 +169,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_223205) do
   add_foreign_key "participants", "rooms"
   add_foreign_key "participants", "users"
   add_foreign_key "posts", "categories"
-  add_foreign_key "posts", "publishers"
   add_foreign_key "posts", "users"
   add_foreign_key "publishers", "users"
   add_foreign_key "users", "roles"
