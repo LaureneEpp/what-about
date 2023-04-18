@@ -18,7 +18,7 @@ class Post < ApplicationRecord
               too_long: "%{count} characters is the maximum allowed",
             }
   validates :state, inclusion: { in: %w[draft published] }
-  validates :publisher, presence: true, if: :published?
+  # validates :publisher, presence: true, if: :published?
   validates :published_at, presence: true, if: :published?
 
   def published?
@@ -34,7 +34,7 @@ class Post < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[category comments image_attachment image_blob publisher]
+    %w[category comments image_attachment image_blob]
   end
 
   private

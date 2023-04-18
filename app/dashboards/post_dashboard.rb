@@ -16,7 +16,6 @@ class PostDashboard < Administrate::BaseDashboard
     image_attachment: Field::HasOne,
     image_blob: Field::HasOne,
     published_at: Field::DateTime,
-    publisher_id: Field::Number,
     slug: Field::String,
     state: Field::String,
     subtitle: Field::String,
@@ -44,7 +43,6 @@ class PostDashboard < Administrate::BaseDashboard
     image_attachment
     image_blob
     published_at
-    publisher_id
     slug
     state
     subtitle
@@ -65,7 +63,6 @@ class PostDashboard < Administrate::BaseDashboard
     image_attachment
     image_blob
     published_at
-    publisher_id
     slug
     state
     subtitle
