@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :follows
-  get "users/account"
   namespace :admin do
     resources :users
     resources :posts
@@ -22,10 +20,11 @@ Rails.application.routes.draw do
                sessions: "users/sessions",
                registrations: "users/registrations",
              }
+  resources :categories, only: %i[index]
+  resources :follows
   resources :posts do
     resources :comments
   end
-  resources :categories, only: %i[index]
   resources :rooms do
     resources :messages
   end
