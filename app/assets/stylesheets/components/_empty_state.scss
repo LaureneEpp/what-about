@@ -1,0 +1,22 @@
+.empty-state {
+  padding: 35px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-size: xx-large;
+    color: $cornsilk;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+}
+
+.empty-post {
+  background-color: $gold;
+}
+
+.empty-room {
+  
+}

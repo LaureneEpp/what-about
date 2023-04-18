@@ -1,0 +1,22 @@
+.lines {
+    position: absolute;
+    top: 6%;
+    left: 5%;
+
+    .l1 {
+        width: 250px;
+        height: 3px;
+        background-color: $brunswick-green;
+        border-radius: 5px;
+    }
+
+    .l2 {
+        width: 140px;
+        height: 3px;
+        background-color: $brunswick-green;
+        border-radius: 5px;
+        position: relative;
+        top: 20px
+
+    }
+}

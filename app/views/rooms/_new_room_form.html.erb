@@ -1,0 +1,9 @@
+<%= simple_form_for @room, remote: true, html: { class: "border border-dark p-2 mt-3"}, data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"} do |f| %>
+  <%= form_error_notification(@room) %>
+  <div class="form-inputs">
+    <%= f.input :name, input_html: { autocomplete: false } %>
+  </div>
+  <div class="form-action my-3">
+    <%= f.submit class: "btn btn-create", data: {disable_with: false} %>
+  </div>
+<% end %>

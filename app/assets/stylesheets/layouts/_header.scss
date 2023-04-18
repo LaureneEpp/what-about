@@ -1,0 +1,42 @@
+.navbar {
+  margin-bottom: 0;
+  background: $rich-black;
+  color: $cornsilk;
+
+  .navbar-brand,
+  .nav-item,
+  .navbar-toggler {
+    color: $cornsilk;
+  }
+
+  a.navbar-brand {
+    font-size: 30px;
+    font-weight: bolder;
+  }
+
+  .navbar-toggler {
+    background-color: $gold;
+  }
+
+  .admin {
+    background: $red-patone;
+  }
+
+  @media (max-width: 991px) {
+    #navbarText {
+      background-color: #004643;
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px $gold;
+      padding: inherit;
+      margin-top: 10px;
+    }
+  }
+
+  @media (min-width: 991px) {
+    #navbarText {
+      display: flex;
+      justify-content: flex-end;
+
+    }
+  }
+}

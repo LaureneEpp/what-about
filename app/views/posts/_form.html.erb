@@ -1,0 +1,20 @@
+<div class="container container-form">
+  <div class="post-form-title py-5">
+    <h3>What about?</h3>
+  </div>
+  <div class="form">
+    <%= simple_form_for @post, html: { class: "post_form" } do |f| %>
+      <%= form_error_notification(post) %>
+
+      <%= f.input :user_id, as: :hidden, value: current_user.id %> 
+      <%= f.input :title, input_html: { autofocus: true } %>
+      <%= f.input :subtitle, input_html: { autofocus: true } %>
+      <%= f.input :content, input_html: { autofocus: true } %>
+      <%=f.collection_select :category_id, Category.all, :id, :name %>
+      <%= f.input :image, as: :file, placeholder: 'Upload a picture', direct_upload: true %>
+
+      <%= f.submit 'Update', class: "btn btn-update mt-4" %>
+      <%= link_to 'Cancel', posts_path, class:"btn btn-cancel mx-3" %>
+    <% end %>
+  </div>
+</div>

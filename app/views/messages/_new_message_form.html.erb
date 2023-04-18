@@ -1,0 +1,12 @@
+<div class="form-group msg-form my-3 position-absolute bottom-0 w-75">
+    <%= simple_form_for [@single_room, @message], remote: true, html: { class: "new_message_form" }, data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"} do |f| %>
+      <%= form_error_notification(@message) %>
+
+      <div class="form-input">
+        <%= f.input :content, label: false, id: 'chat-text', class: 'msg-content' %>
+      </div>
+      <div class="form-action">
+        <%= f.submit class: "btn btn-create my-4", data: {disable_with: false} %>
+      </div>
+    <% end %>
+</div>
