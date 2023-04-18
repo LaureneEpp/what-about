@@ -12,12 +12,19 @@
         </div>
         <div class="profile-information">
             <h3><%= @user.fullname %></h3>
-            <h6>
-                <%= pluralize(@posts_count, "Posts") %>
+            <h6 class="d-flex">
+                <%= pluralize(@posts_count, "Posts") %> |
+                <%= pluralize(@followees_count, "Followees") %>
             </h6>
-            <h6>
-            <%= link_to 'Contact', user_path(@user), class:"btn btn-info " %>
+            <h6 class="d-flex">
+            <%= link_to 'Contact', user_path(@user), class:"btn btn-info mx-2 " %>
+            <% if current_user.followees.include?(@user) %>
+                <%= button_to "Unfollow", unfollow_user_path, method: "POST", class:"btn btn-update mx-2" %>
+            <% else %>
+                <%= button_to "Follow", follow_user_path, method: "POST", class:"btn btn-update mx-2"  %>
+            <% end%>
             </h6>
+            <h6><%= @user.bio %></h6>
         </div>
     </div>
     <div class="row">

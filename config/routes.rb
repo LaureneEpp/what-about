@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/account'
+  resources :follows
+  get "users/account"
   namespace :admin do
     resources :users
     resources :posts
@@ -31,4 +32,6 @@ Rails.application.routes.draw do
   get "user/:id", to: "users#show", as: "user"
   get "profile/:id", to: "users#profile", as: :profile
   get "account/:id", to: "users#account", as: :account
+  post "/users/:id/follow", to: "users#follow", as: "follow_user"
+  post "/users/:id/unfollow", to: "users#unfollow", as: "unfollow_user"
 end
