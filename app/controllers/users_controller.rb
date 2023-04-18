@@ -22,12 +22,25 @@ class UsersController < ApplicationController
 
   def profile
     @user.avatar.attach(params[:avatar])
+    @followees_count = Follow.where(followee_id: @user).count
     @posts_count = Post.where(user_id: @user).count
     @posts = @user.posts.order(created_at: :desc)
   end
 
   def account
     @posts = @user.posts.order(created_at: :desc)
+  end
+
+  def follow
+    @user = User.find(params[:id])
+    current_user.followees << @user
+    redirect_back(fallback_location: user_path(@user))
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.followed_users.find_by(followee_id: @user.id).destroy
+    redirect_back(fallback_location: user_path(@user))
   end
 
   private
