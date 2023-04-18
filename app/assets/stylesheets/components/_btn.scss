@@ -1,0 +1,127 @@
+.btn-first {
+  border: 2px solid $brunswick-green;
+  outline: none;
+  background-color: $brunswick-green;
+  color: $cornsilk;
+  font-size: 30px;
+  padding: 20px;
+  margin-top: 15px;
+  width: 300px;
+}
+
+.btn-first:nth-child(1), .b1, .b2, .b3 {
+  margin-right: 30px;
+  text-align: center;
+}
+
+.btn-first:hover {
+  transition: all 0.3s ease-in-out;
+  background: $cornsilk;
+  color: $brunswick-green;
+}
+
+.btn-cancel,
+.btn-create,
+.btn-delete,
+.btn-info,
+.btn-update {
+  background-color: transparent;
+  margin-top: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+}
+
+.btn-search {
+  background-color: transparent;
+  padding: 10px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 5px;
+}
+
+.btn-cancel, .btn-info {
+  color: $tyrian-purple;
+  border-color: $tyrian-purple;
+}
+.btn-cancel:hover, .btn-info:hover {
+  background: $tyrian-purple;
+  color: $cornsilk;
+}
+
+.btn-create, .btn-search {
+  color: $brunswick-green;
+  border-color: $brunswick-green;
+}
+
+.btn-create:hover, .btn-search:hover {
+  background: $brunswick-green;
+  color: $cornsilk;
+}
+
+.btn-delete {
+  color: $red-patone;
+  border-color: $red-patone;
+}
+
+.btn-delete:hover {
+  background: $red-patone;
+  color: $cornsilk;
+  border-color: $red-patone;
+}
+.btn-update {
+  color: $peach;
+  border-color: $peach;
+}
+
+.btn-update:hover {
+  background: $peach;
+  color: $cornsilk;
+  border-color: $peach;
+}
+
+// .logo {
+//   position: absolute;
+//   right: 3%;
+//   top: 4%;
+//   width: 80px;
+//   height: 80px;
+//   cursor: pointer;
+// }
+
+.medias {
+  list-style-type: none;
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bulle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  // width: 60px;
+  // height: 60px;
+  // border-radius: 50%;
+  // border: 1px solid $cornsilk;
+  // margin: 10px 0;
+  // background-color: $brunswick-green;
+}
+
+.logo-medias {
+  width: 40px;
+  height: 40px;
+  color: $brunswick-green;
+  font-size: x-large;
+}
+.logo-medias:hover {
+  color: $gold;
+}

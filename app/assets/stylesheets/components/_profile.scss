@@ -1,0 +1,26 @@
+.profile-avatar, .profile-title, .profile-information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5%;
+}
+
+.profile-avatar {
+    margin-top: 15%;
+}
+
+.profile-title {
+    h2 {
+      display: block;
+      padding: 15px;
+      background-color: $brunswick-green;
+      color: $cornsilk;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+}
+
+.profile-information {
+    flex-direction: column;
+}

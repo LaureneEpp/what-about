@@ -1,0 +1,15 @@
+<%# Step 1: remove the form %>
+<%= turbo_stream.remove @comment %>
+
+<%# Step 2: insert the updated date at the correct position %>
+<% if previous_date = @comment.previous_date %>
+  <%= turbo_stream.after previous_date do %>
+    <%= render @comment, post: @post %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.prepend "comments" do %>
+    <%= render @comment, post: @post %>
+  <% end %>
+<% end %>
+
+<%= render_turbo_stream_flash_messages %>

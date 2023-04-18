@@ -1,0 +1,26 @@
+<% if current_user.nil? %>
+    <div class="container-landing_page">
+    <div class="container-form-account">
+        <div class="lines">
+            <div class="l1"></div>
+            <div class="l2"></div>
+        </div>
+        <div class="container-first">
+            <h1><span>What </span><span>is </span><span>new </span><span>?</span></h1>
+            <div class="container-btns">
+                <%= link_to "Log in", new_user_session_path, class:"btn-first b1" %>
+                <%= link_to "Sign up", new_user_registration_path, class:"btn-first b2"%>
+                <%= link_to "Discover", posts_path, class:"btn-first b3" %>
+            </div>
+        </div>
+
+            <ul class="medias">
+                <li class="bulle">
+                    <a href="https://github.com/LaureneEpp" class="bi bi-github logo-medias"></a>
+                </li>
+            </ul>
+    </div>
+    </div>
+<% else %>
+    <%= render partial: "static_pages/dashboard" %>
+<% end %>

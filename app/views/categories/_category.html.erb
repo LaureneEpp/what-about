@@ -1,0 +1,26 @@
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    <% category.posts.each do |post| %>
+        <div class="col">
+            <div class="card-image ">
+                <%= link_to post_path(post.id), data: { turbo_frame: "_top" } do %>
+                    <% if post.image.present? %>
+                        <%= image_tag post.image.variant(:thumb), class:"img-fluid img-thumbnail" %>
+                    <% else %>
+                        <%= image_tag("landscape01.jpeg", alt: "default", size: '500x500', class:"img-fluid img-thumbnail") %>
+                    <% end %>
+                <% end %>
+                <div class="card-information">
+                    <div class="card-title">
+                        <%= link_to post_path(post.id), data: { turbo_frame: "_top" } do %>
+                            <h3 class="title"><%= post.title.upcase %></h3>
+                        <% end %>
+                    </div>
+                    <%= link_to post_path(post.id), data: { turbo_frame: "_top" } do %>
+                        <h4 class="subtitle"><%= post.category.name %></h4>
+                        <p class="date"><%= post.created_at.strftime("%d/%m/%Y")%></p>
+                    <% end %>
+                </div>
+            </div>   
+        </div>
+    <% end %>
+</div>

@@ -1,0 +1,10 @@
+<div class="cont-<%=message.user.id%>">
+  <div class="message-box msg-<%= message.user.id %>">
+    <% unless message.room.is_private %>
+      <h6 class="name fw-bold">
+        <%= link_to message.user.email, user_path(message.user.id), class:'text-decoration-none text-white' %>
+      </h6>
+    <% end %>
+    <p class="text-white"><%= message.content %></p>
+  </div>
+</div>
