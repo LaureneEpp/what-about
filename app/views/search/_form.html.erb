@@ -1,7 +1,0 @@
-
-    <%= search_form_for(@q, url: search_path, method: :get, class:'d-flex') do |form| %>
-      <%= form.search_field :title_or_subtitle_or_category_name_cont,
-        placeholder: 'Search...',
-        class:"form-control me-2" %>
-      <%= form.submit 'Search!', class:"btn btn-search" %>
-    <% end %>
