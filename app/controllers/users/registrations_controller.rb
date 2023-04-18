@@ -11,15 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    # super do |resource|
-    # User.update(role_id: 0)
-    # Publisher.create(
-    #   first_name: resource.first_name,
-    #   last_name: resource.last_name,
-    #   user_id: resource.id,
-    # )
-    # User.update(role_id: 0)
-    # end
     super
   end
 

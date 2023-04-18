@@ -40,6 +40,7 @@
 .container-form-account,
 .container-posts,
 .container-profile,
+.container-publishers,
 .container-table {
   display: flex;
   flex-direction: column;
@@ -53,7 +54,8 @@
 .container-form,
 .container-form-account,
 .container-posts,
-.container-profile {
+.container-profile, 
+.container-publishers {
   min-height: 100vh;
   padding-bottom: 30px;
 }

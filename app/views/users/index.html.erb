@@ -1,4 +1,16 @@
+<div class="container-publishers">
+  <ul class="gallery">
+    <% @users.each do |user| %>
+      <li class="profile-card">
+        <%= image_tag user.avatar %>
+      </li>
+    <% end %>
+  </ul>
+
+
 <% @users.each do |user| %>
   <%= user.username %><br/>
   <%= user.email %><br/>
 <% end %>
+
+</div>
