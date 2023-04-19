@@ -40,6 +40,7 @@
 .container-form-account,
 .container-posts,
 .container-profile,
+.container-publishers,
 .container-table {
   display: flex;
   flex-direction: column;
@@ -53,7 +54,8 @@
 .container-form,
 .container-form-account,
 .container-posts,
-.container-profile {
+.container-profile, 
+.container-publishers {
   min-height: 100vh;
   padding-bottom: 30px;
 }
@@ -88,4 +90,24 @@
 .container-account,
 .container-profile {
   background: $gold;
+}
+
+.gallery {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-auto-rows: 300px;
+  grid-gap: 10px;
+  justify-content: center;
+  list-style-type: none;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: minmax(auto, 450px);
+    grid-auto-rows: auto;
+    grid-gap: 25px;
+    padding: 20px 20px 20px 20px;
+  }
 }

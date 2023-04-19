@@ -10,11 +10,9 @@
 Category.delete_all
 Role.delete_all
 User.delete_all
-# Publisher.delete_all
 
 puts "Categories deleted"
 puts "Users deleted"
-puts "Publishers deleted"
 
 #Seeding
 Role.create({ name: 0, description: "Can read posts" })
@@ -66,13 +64,6 @@ User.create!(
 )
 
 puts "Users created"
-
-# Publisher.create!(user_id: 1)
-# Publisher.create!(user_id: 2)
-# Publisher.create!(user_id: 3)
-# Publisher.create!(user_id: 4)
-
-# puts "Publishers created"
 
 Category.create(name: "What is new?")
 Category.create(name: "Lifestyle")

@@ -2,9 +2,7 @@
     <div class="row">
         <div class="profile-avatar">
             <% if @user.avatar.attached? %>
-                <%= image_tag @user.avatar, style:"width: 200px; height: 200px; border-radius: 100%", class:"rounded-circle"  %>
-            <% else %>
-              <%= image_tag("anonymous.jpg", alt: "default", size: '200x200', class:"rounded-circle") %>
+                <%= image_tag (@user.avatar), class:'rounded-circle', size: '200x200'  %>
             <% end %>
         </div>
         <div class="profile-title">

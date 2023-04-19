@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show profile account]
 
   def index
+    # @users = User.where(role_id: 2)
     @users = User.all
   end
 

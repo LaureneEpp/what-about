@@ -10,6 +10,8 @@ class User < ApplicationRecord
   scope :all_except, ->(user) { where.not(id: user) }
   after_create_commit { broadcast_append_to "users" }
 
+  after_commit :add_default_avatar, on: %i[create update]
+
   extend FriendlyId
   friendly_id :username, use: %i[finders slugged]
 
@@ -56,5 +58,21 @@ class User < ApplicationRecord
 
   def should_generate_new_friendly_id?
     username_changed?
+  end
+
+  def avatar_thumbnail
+    avatar.variant(resize_to_limit: [200, 200]).processed
+  end
+
+  private
+
+  def add_default_avatar
+    return if self.avatar.attached?
+    avatar.attach(
+      io:
+        File.open(Rails.root.join("app", "assets", "images", "anonymous.jpg")),
+      filename: "anonymous.jpg",
+      content_type: "image/jpg",
+    )
   end
 end

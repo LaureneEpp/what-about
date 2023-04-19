@@ -1,10 +1,8 @@
 <div class="container container-form-account">
     <div class="container-account">
         <div class="profile-avatar">
-            <% if current_user.avatar.attached? %>
-                <%= image_tag current_user.avatar, style:"width: 200px; height: 200px; border-radius: 100%", class:"rounded-circle"  %>
-            <% else %>
-              <%= image_tag("anonymous.jpg", alt: "default", size: '200x200', class:"rounded-circle") %>
+            <% if @user.avatar.attached? %>
+                <%= image_tag (@user.avatar), class:'rounded-circle', size: '200x200'  %>
             <% end %>
         </div>
         <div class="profile-title">
