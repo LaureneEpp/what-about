@@ -2,15 +2,19 @@
   <ul class="gallery">
     <% @users.each do |user| %>
       <li class="profile-card">
-        <%= image_tag user.avatar %>
+        <%= image_tag user.avatar, alt:"profile", class:"profile-img" %>
+        <ul class="side-social">
+          <a href="https://github.com/" alt="github" class="bi bi-github "></a>
+          <a href="https://linkedin.com" alt="linkedin" class="bi bi-linkedin"></a>
+          <a href="https://twitter.com" alt="twitter" class="bi bi-twitter"></a>
+        </ul>
+        <%= link_to profile_path(user) do %>
+          <div class="profile-info">
+            <p class="profile-name"><%= user.fullname %></p>
+            <p class="profile-work"><%= user.role.name %></p>
+          </div>
+        <% end %>
       </li>
     <% end %>
   </ul>
-
-
-<% @users.each do |user| %>
-  <%= user.username %><br/>
-  <%= user.email %><br/>
-<% end %>
-
 </div>

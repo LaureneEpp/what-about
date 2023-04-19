@@ -1,4 +1,7 @@
-.icon-create, .icon-delete, .icon-comment, .icon-edit {
+.icon-create,
+.icon-delete,
+.icon-comment,
+.icon-edit {
   background: transparent;
   border: none;
   font-size: larger;
@@ -12,11 +15,43 @@
   }
 }
 
-
-
 .icon-edit {
   color: $peach;
   &:hover {
-    color:$peach;
+    color: $peach;
+  }
+}
+
+.side-social {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  list-style-type: none;
+
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.side-social a {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 1px solid $cornsilk;
+  background-color: $rich-black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(calc(-100% - 40px));
+  transition: transform 0.4s ease-in-out;
+
+  &:hover {
+    background-color: $gold;
+  }
+
+  @media screen and (max-width: 600px) {
+    transform: translate(0);
   }
 }

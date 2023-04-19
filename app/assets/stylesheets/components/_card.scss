@@ -18,15 +18,16 @@
     flex-direction: row;
   }
 
-  .title, .subtitle {
+  .title,
+  .subtitle {
     font-weight: bold;
   }
-  
+
   .title {
     font-size: larger;
   }
 
-  .subtitle{
+  .subtitle {
     font-size: medium;
   }
 
@@ -55,8 +56,84 @@
 .card-post-profile {
   background-color: $rich-black;
   padding: 15px 15px 15px 15px;
-  
+
   .card-text {
     text-align: justify;
+  }
+}
+
+.profile-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid $gold;
+
+  &:hover {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 3px $gold;
+  }
+  .profile-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: $gold;
+    border-top: 1px solid $tyrian-purple;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:hover .profile-info,
+  &:hover .side-social a {
+    transform: translate(0);
+  }
+
+  &:hover .side-social a:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  &:hover .side-social a:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  &:hover .side-social a:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  .profile-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: $cornsilk;
+  }
+  .profile-work {
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 5px;
+    color: $cornsilk;
+  }
+
+  .profile-name,
+  .profile-work {
+    will-change: transform;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile-card {
+    &:hover {
+      transform: none;
+      // box-shadow: 0 0 0 3px $gold;
+    }
+    .profile-info {
+      transform: translate(0);
+      background-color: transparent;
+      border-style: none;
+    }
+
+    .profile-name,
+    .profile-work {
+      color: $gold;
+    }
   }
 }
