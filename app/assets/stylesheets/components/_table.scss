@@ -1,14 +1,19 @@
 .search-title {
-  height: 20%;
+  padding: 30px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .table-results {
-  margin-top: 30px;
-  width: 80%;
+//   margin-top: 30px;
+//   width: 80%;
 
-  table {
-    background-color: $gold;
-    border: 4px solid $brunswick-green;
+table {
+  background-color: $gold;
+  border: 4px solid $brunswick-green;
+  overflow: scroll;
   }
 
   tr {
@@ -19,12 +24,12 @@
     padding: 30px;
   }
 
-  th, .search-title {
+  th, .search-title, .search-username {
     text-transform: uppercase;
     font-weight: bolder;
   }
 
-  .search-title, .search-subtitle {
+  .search-title, .search-subtitle, .search-first-name, .search-last-name {
     word-break: normal;
     text-align: justify;
   }
@@ -32,4 +37,51 @@
   .search-category {
     font-style: italic;
   }
+}
+
+td a {
+  color: $rich-black;
+}
+
+
+// @media (max-width: 991px) {
+//   .tab-content>.tab-pane {
+//     display: block;
+//     opacity: 1;
+//   }
+// }
+// .responsive-tabs {
+//   padding: 1rem;
+// }
+
+// .responsive-tabs .nav-tabs {
+//   display: none;
+// }
+
+// @media (min-width: 768px) {
+//   .responsive-tabs .nav-tabs {
+//       display: flex;
+//   }
+
+//   .responsive-tabs .card {
+//       border: none;
+//   }
+
+//   .responsive-tabs .card .card-header {
+//       display: none;
+//   }
+
+//   .responsive-tabs .card .collapse {
+//       display: block;
+//   }
+// }
+
+@media (max-width: 480px) {
+  .search-subtitle {
+    display: none
+  }
+  // .responsive-tabs .tab-pane {
+  //     display: block !important;
+  //     opacity: 1;
+  // }
 }

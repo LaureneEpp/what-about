@@ -30,11 +30,11 @@ class Post < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[category subtitle title]
+    %w[category subtitle title user]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[category comments image_attachment image_blob]
+    %w[category user]
   end
 
   private
