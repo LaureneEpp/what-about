@@ -30,6 +30,8 @@ class UsersController < ApplicationController
 
   def account
     @posts = @user.posts.order(created_at: :desc)
+    @followers = Follow.where(followee_id: current_user.id)
+    @followers_count = @followers.count
   end
 
   def follow

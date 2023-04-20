@@ -12,7 +12,7 @@
             <h3><%= @user.fullname %></h3>
             <h6 class="d-flex">
                 <%= pluralize(@posts_count, "Posts") %> |
-                <%= pluralize(@followees_count, "Followees") %>
+                <%= pluralize(@followees_count, "Followers") %>
             </h6>
             <h6 class="d-flex">
             <%= link_to 'Contact', user_path(@user), class:"btn btn-info mx-2 " %>

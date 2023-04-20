@@ -1,7 +1,8 @@
+.icon-comment,
 .icon-create,
 .icon-delete,
-.icon-comment,
-.icon-edit {
+.icon-edit,
+.icon-view {
   background: transparent;
   border: none;
   font-size: larger;
@@ -19,6 +20,13 @@
   color: $peach;
   &:hover {
     color: $peach;
+  }
+}
+
+.icon-view {
+  color: $red-patone;
+  &:hover {
+    color: $red-patone;
   }
 }
 
