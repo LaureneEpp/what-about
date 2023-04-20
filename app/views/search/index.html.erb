@@ -1,28 +1,99 @@
-<div class="container container-table">
-    <div class="search-title">
-        <h2><%= pluralize(@posts.count, "Result") %></h2>
+<div class="container container-table ">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#posts" class="nav-link active" data-bs-toggle="tab">Posts</a>
+        </li>
+        <li class="nav-item">
+            <a href="#categories" class="nav-link" data-bs-toggle="tab">Categories</a>
+        </li>
+        <li class="nav-item">
+            <a href="#people" class="nav-link" data-bs-toggle="tab">People</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="posts">
+            <div class="search-title">
+                <h2><%= pluralize(@posts.count, "Result") %></h2>
+            </div>
+            <% if @posts.present? %>
+            <div class="table-results table-responsive">
+                <table class="table table-bordered table-striped table-hover align-middle">
+                    <thead>
+                        <tr>
+                        <th class="search-title"><%= sort_link(@q, :title, "Title", default_order: :asc) %></th >
+                        <th class="search-subtitle"><%= sort_link(@q, :subtitle, "Subtitle") %></th>
+                        <th class="search-category"><%= sort_link(@q, :category.name, "Category") %></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @posts.each do |post|  %>
+                            <tr>
+                                <td class="search-title "><%= link_to post.title, post %></td>
+                                <td class="search-subtitle "><%= post.subtitle.truncate_words(35) %></td>
+                                <td class="search-category "><%= post.category.name %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="categories">
+            <div class="search-title">
+                <h2><%= pluralize(@categories.count, "Result") %></h2>
+            </div>
+            <% if @categories.present? %>
+                <div class="table-results table-responsive">
+                    <table class="table table-bordered table-striped table-hover align-middle">
+                        <thead>
+                            <tr>
+                            <th class="search-category"><%= sort_link(@q, :category.name, "Category", default_order: :asc) %></th>
+                            <th class="search-title"><%= sort_link(@q, :title, "Title", default_order: :asc) %></th>
+                            <th class="search-subtitle"><%= sort_link(@q, :subtitle, "Subtitle") %></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @categories.each do |c|  %>
+                                <% c.posts.each do |p| %>
+                                    <tr>
+                                        <td class="search-category "><%= c.name %></td>
+                                        <td class="search-title "><%= link_to p.title, p %></td>
+                                        <td class="search-subtitle"><%= p.subtitle.truncate_words(35) %></td>
+                                    </tr>
+                                <% end %>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            <% end %>
+        </div>
+        <div class="tab-pane fade" id="people">
+            <div class="search-title">
+                <h2><%= pluralize(@users.count, "Result") %></h2>
+            </div>
+            <% if @users.present? %>
+                <div class="table-results table-responsive">
+                    <table class="table table-bordered table-striped table-hover align-middle">
+                        <thead>
+                            <tr>
+                            <th class="search-username"><%= sort_link(@q, :user, "Username", default_order: :asc ) %></th>
+                            <th class="search-first-name"><%= sort_link(@q, :user, "First Name") %></th>
+                            <th class="search-last-name"><%= sort_link(@q, :user, "Last name") %></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @users.each do |user|  %>
+                                <tr>
+                                    <td class="search-username "><%= link_to user.username, profile_path(user) %></td>
+                                    <td class="search-first-name "><%= link_to user.first_name, profile_path(user) %></td>
+                                    <td class="search-last-name "><%= link_to user.first_name, profile_path(user) %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            <% end %>
+        </div>
     </div>
-    <% if @posts.present? %>
-    <div class="table-results table-responsive">
-        <table class="table table-bordered table-striped table-hover align-middle">
-            <thead>
-                <tr>
-                <th><%= sort_link(@q, :title, "Title", default_order: :asc) %></th>
-                <th><%= sort_link(@q, :subtitle, "Subtitle") %></th>
-                <th><%= sort_link(@q, :category.name, "Category") %></th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @posts.each do |post|  %>
-                    <tr>
-                        <td class="search-title"><%= link_to post.title, post %></td>
-                        <td class="search-subtitle"><%= post.subtitle.truncate_words(35) %></td>
-                        <td class="search-category"><%= post.category.name %></td>
-                    </tr>
-                <% end %>
-            </tbody>
-        </table>
-    </div>
-      
-    <% end %>
 </div>

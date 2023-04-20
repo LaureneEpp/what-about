@@ -9,13 +9,7 @@ class User < ApplicationRecord
 
   scope :all_except, ->(user) { where.not(id: user) }
   after_create_commit { broadcast_append_to "users" }
-
   after_commit :add_default_avatar, on: %i[create update]
-
-  extend FriendlyId
-  friendly_id :username, use: %i[finders slugged]
-
-  # after_initialize :set_defaults
   before_save :assign_role
 
   belongs_to :role, optional: true
@@ -35,6 +29,9 @@ class User < ApplicationRecord
             format: {
               with: /\A[a-zA-Z]+([a-zA-Z]|\d)*\Z/,
             }
+
+  extend FriendlyId
+  friendly_id :username, use: %i[finders slugged]
 
   def fullname
     "#{first_name} #{last_name}"
@@ -62,6 +59,14 @@ class User < ApplicationRecord
 
   def avatar_thumbnail
     avatar.variant(resize_to_limit: [200, 200]).processed
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[first_name last_name username]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[posts]
   end
 
   private
