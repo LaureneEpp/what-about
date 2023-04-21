@@ -4,6 +4,9 @@ class CommentsController < ApplicationController
   before_action :set_post
   before_action :set_comment, only: %i[show edit update destroy]
 
+  def show
+  end
+
   def new
     @comment = @post.comments.build
   end
@@ -14,15 +17,8 @@ class CommentsController < ApplicationController
 
     if @comment.save
       respond_to do |format|
-        format.html do
-          redirect_to post_path(@post),
-                      notice: "Comment was successfully created."
-        end
-        format.turbo_stream do
-          flash.now[:notice] = "Comment was successfully created."
-          redirect_to post_path(@post),
-                      notice: "Comment was successfully updated."
-        end
+        format.html { redirect_to post_path(@post) }
+        format.turbo_stream { redirect_to post_path(@post) }
       end
     else
       render :new, status: :unprocessable_entity
@@ -35,15 +31,8 @@ class CommentsController < ApplicationController
   def update
     if @comment.update(comment_params)
       respond_to do |format|
-        format.html do
-          redirect_to post_path(@post),
-                      notice: "Comment was successfully updated."
-        end
-        format.turbo_stream do
-          flash.now[:notice] = "Comment was successfully updated."
-          redirect_to post_path(@post),
-                      notice: "Comment was successfully updated."
-        end
+        format.html { redirect_to post_path(@post) }
+        format.turbo_stream { redirect_to post_path(@post) }
       end
     else
       render :edit, status: :unprocessable_entity
@@ -54,15 +43,8 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html do
-        redirect_to post_path(@post),
-                    notice: "Comment was successfully destroyed."
-      end
-      format.turbo_stream do
-        flash.now[:notice] = "Comment was successfully destroyed."
-        redirect_to post_path(@post),
-                    notice: "Comment was successfully destroyed."
-      end
+      format.html { redirect_to post_path(@post) }
+      format.turbo_stream { redirect_to post_path(@post) }
     end
   end
 

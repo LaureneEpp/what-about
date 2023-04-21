@@ -16,17 +16,20 @@ class Ability
     # can :manage, :all
     user ||= User.new # guest user (not logged in)
     can :read, Post if User.new # guest user (not logged in)
+    # can :read, Comment
 
     if user.admin?
       can :manage, :all
     elsif user.publisher?
       can %i[read create], Post
       can %i[update destroy], Post, user: user
+      can %i[read create], Comment
+      can %i[update destroy], Comment, user_id: user.id
       can :manage, Comment, post: { user_id: user.id }
     elsif user.standard?
       can :read, Post #all users (not logged in included) can read all posts
-      can :create, Comment, :post
-      can %i[update destroy], Comment, user: user
+      can %i[read create], Comment, :post
+      can %i[update destroy], Comment, user_id: user.id
     end
 
     # The first argument to `can` is the action you are giving the user
