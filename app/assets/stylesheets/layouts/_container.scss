@@ -51,13 +51,14 @@
 
 .container-categories,
 .container-dashboard,
-.container-form,
+// .container-form,
 .container-form-account,
 .container-posts,
 .container-profile, 
 .container-publishers {
-  min-height: 100vh;
   padding-bottom: 30px;
+  min-height: 100vh;
+  height: 100%;
 }
 
 .container-account {
@@ -73,6 +74,10 @@
   background-image: url("news_03.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.container-form {
+  padding-bottom: 30px;
 }
 
 .container-form-account {
