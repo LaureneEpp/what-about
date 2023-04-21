@@ -5,17 +5,30 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "faker"
 
 #Clean up
 Category.delete_all
 Role.delete_all
 User.delete_all
+Room.delete_all
+Post.delete_all
+Comment.delete_all
+Follow.delete_all
 
 puts "Categories deleted"
+puts "Roles deleted"
 puts "Users deleted"
+puts "Rooms deleted"
+puts "Posts deleted"
+puts "Comments deleted"
+puts "Follows deleted"
+
+puts "Seeding data..."
 
 #Seeding
 Role.create({ name: 0, description: "Can read posts" })
+
 Role.create(
   {
     name: 1,
@@ -28,196 +41,85 @@ Role.create(
 
 puts "Roles created"
 
-User.create!(
-  first_name: "Test01",
-  last_name: "Test01",
-  username: "Test01",
-  email: "test01@test.org",
-  password: "password",
-  role_id: 1,
-)
-User.create!(
-  first_name: "Test02",
-  last_name: "Test02",
-  username: "Test02",
-  email: "test02@test.org",
-  password: "password",
-  role_id: 2,
-)
-
-User.create!(
-  first_name: "Test03",
-  last_name: "Test03",
-  username: "Test03",
-  email: "test03@test.org",
-  password: "password",
-  role_id: 1,
-)
-
-User.create!(
-  first_name: "Test04",
-  last_name: "Test04",
-  username: "Test04",
-  email: "test04@test.org",
-  password: "password",
-  role_id: 3,
-)
-
-puts "Users created"
-
-Category.create(name: "What is new?")
-Category.create(name: "Lifestyle")
-Category.create(name: "Retail")
-Category.create(name: "Architecture")
+10.times do |count|
+  Category.create(name: Faker::Lorem.words(number: 3, supplemental: true))
+end
 
 puts "Categories created"
 
-Post.create(
-  title: "Post01",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 1,
-  user_id: 2,
-)
-Post.create(
-  title: "Post02",
-  subtitle:
-    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit. amet, consectetur, adipisci velit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 1,
-  user_id: 2,
-)
-Post.create(
-  title: "Post03",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 2,
-  user_id: 2,
-)
-Post.create(
-  title: "Post04",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 1,
-  user_id: 3,
-)
-Post.create(
-  title: "Post05",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 3,
-  user_id: 3,
-)
-Post.create(
-  title: "Post06",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 1,
-  user_id: 2,
-)
-Post.create(
-  title: "Post07",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 1,
-  user_id: 2,
-)
-Post.create(
-  title: "Post08",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 4,
-  user_id: 2,
-)
+8.times do |count|
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: "password",
+    role_id: 1,
+    bio: Faker::Lorem.paragraphs(number: 1, supplemental: true),
+  )
+end
 
-Post.create(
-  title: "Post09",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 2,
-  user_id: 2,
-)
-Post.create(
-  title: "Post10",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 2,
-  user_id: 2,
-)
+8.times do |count|
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: "password",
+    role_id: 2,
+    bio: Faker::Lorem.paragraphs(number: 1, supplemental: true),
+  )
+end
 
-Post.create(
-  title: "Post11",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 2,
-  user_id: 1,
-)
+4.times do |count|
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: "password",
+    role_id: 3,
+    bio: Faker::Lorem.paragraphs(number: 1, supplemental: true),
+  )
+end
 
-Post.create(
-  title: "Post12",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 2,
-  user_id: 2,
-)
+puts "Users created"
 
-Post.create(
-  title: "Post13",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 1,
-  user_id: 3,
-)
-Post.create(
-  title: "Post14",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 1,
-  user_id: 3,
-)
-
-Post.create(
-  title: "Post15",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 1,
-  user_id: 3,
-)
-
-Post.create(
-  title: "Post16",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 4,
-  user_id: 3,
-)
-
-Post.create(
-  title: "Post17",
-  subtitle: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit.",
-  content:
-    "Fugiat quo voluptas nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-  category_id: 4,
-  user_id: 4,
-)
+25.times do |count|
+  Post.create(
+    title: Faker::Book.title,
+    subtitle: Faker::Lorem.sentences(number: 2, supplemental: true),
+    content: Faker::Lorem.paragraphs(number: 6, supplemental: true),
+    category_id: Faker::Number.between(from: 1, to: 10),
+    user_id: Faker::Number.between(from: 1, to: 20),
+  )
+end
 
 puts "Posts created"
 
-# puts "\n== Seeding the database with fixtures =="
-# system("bin/rails db:fixtures:load")
+30.times do |count|
+  Comment.create(
+    name: Faker::Lorem.sentence,
+    body: Faker::Lorem.sentences(number: 5, supplemental: true),
+    post_id: Faker::Number.between(from: 1, to: 25),
+    user_id: Faker::Number.between(from: 1, to: 20),
+  )
+end
+
+puts "Comments created"
+
+5.times { Room.create(name: Faker::Lorem.word, is_private: false) }
+
+puts "Rooms created"
+
+15.times do |count|
+  Follow.create(
+    follower_id: Faker::Number.between(from: 1, to: 20),
+    followee_id: Faker::Number.between(from: 1, to: 20),
+  )
+end
+
+puts "Follows created"
+
+# # puts "\n== Seeding the database with fixtures =="
+# # system("bin/rails db:fixtures:load")
