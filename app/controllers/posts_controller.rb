@@ -7,17 +7,6 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    # if params[:search]
-    #   search_term = params[:search].downcase.gsub(/\s+/, "")
-    #   @posts =
-    #     Post
-    #       .all
-    #       .order("created_at DESC")
-    #       .select do |post|
-    #         post.title.downcase.include?(search_term) ||
-    #           post.category.name.downcase.include?(search_term)
-    #       end
-    # end
     @posts = Post.all.order("created_at DESC")
   end
 
@@ -46,11 +35,10 @@ class PostsController < ApplicationController
           redirect_to posts_path, notice: "Post was successfully created."
         end
         format.turbo_stream do
-          flash.now[:notice] = "Post was successfully created."
+          # flash.now[:notice] = "Post was successfully created."
         end
       end
     else
-      # render :new, status: :unprocessable_entity
       render :new, status: :unprocessable_entity
     end
   end
@@ -63,7 +51,7 @@ class PostsController < ApplicationController
           redirect_to post_path(@post), notice: "Post was successfully updated."
         end
         format.turbo_stream do
-          flash.now[:notice] = "Post was successfully updated."
+          # flash.now[:notice] = "Post was successfully updated."
           redirect_to post_path(@post), notice: "Post was successfully updated."
         end
       end
@@ -75,7 +63,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
-    # redirect_to posts_url, notice: "Post was successfully destroyed."
 
     respond_to do |format|
       format.html do
