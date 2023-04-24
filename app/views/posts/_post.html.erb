@@ -3,10 +3,8 @@
     <div class="card-image">
         <% if can? :read, post %>
           <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>
-            <% if post.image.present? %>
-              <%= image_tag post.image.variant(:thumb), class:"img-fluid img-thumbnail" %>
-            <% else %>
-              <%= image_tag("landscape01.jpeg", alt: "default", size: '500x500', class:"img-fluid img-thumbnail") %>
+            <% if post.image.attached? %>
+                <%= image_tag (post.image), class:'img-fluid img-thumbnail' %>
             <% end %>
           <% end %>
         <% end %>
