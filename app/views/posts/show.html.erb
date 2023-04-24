@@ -5,6 +5,7 @@
     </div>
     <div class="post-image">
       <div class="post-image-picture">
+      <%= console %>
         <% if @post.image.present? %>
           <%= image_tag @post.image.variant(:thumb), class:"img img-fluid" %>
         <% else %>
