@@ -1,0 +1,16 @@
+.pag-bar {
+  display: flex;
+  justify-content: center;
+  .page-link {
+    color: $rich-black;
+    font-weight: 500;
+    background-color: $cornsilk;
+  }
+}
+
+.active {
+  .page-link {
+    background-color: $red-patone;
+    border-color: $red-patone;
+  }
+}

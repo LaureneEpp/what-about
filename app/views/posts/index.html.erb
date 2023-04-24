@@ -11,7 +11,7 @@
     </div>
     
   <%= turbo_frame_tag Post.new do %>
-    <% if @posts.none? %>
+    <% if @posts.nil? %>
       <%= render "posts/empty_state" %>
     <% end %>
   <% end %>
@@ -22,6 +22,8 @@
     </div>
   <% end %>
 </div>
-<div class="pag-bar mt-5 pt-5">
-  <%== pagy_bootstrap_nav(@pagy) %>
-</div>
+<% if @pagy.count > @pagy.items %>
+  <div class="pag-bar mt-5 pt-5">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+<% end %>
