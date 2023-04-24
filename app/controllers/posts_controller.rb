@@ -9,6 +9,10 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order("created_at DESC")
     @pagy, @posts = pagy((@posts))
+    # rescue Pagy::OverflowError
+    #   redirect_to posts_path(page: 1)
+    # params[:page] = 1
+    # retry
   end
 
   # GET /posts/1
