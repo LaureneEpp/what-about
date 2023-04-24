@@ -63,10 +63,6 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
-#Populate DB
-
-gem "faker"
-
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
@@ -76,7 +72,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   # gem "rspec-rails"
   # gem "factory_bot_rails"
-
+  gem "faker"
 end
 
 group :development do
