@@ -1,24 +1,24 @@
-databases:
-  - name: postgres02
-    ipAllowList: []
-    # databaseName: mysite
-    # user: mysite
+# databases:
+#   - name: postgres02
+#     ipAllowList: []
+#     # databaseName: mysite
+#     # user: mysite
 
-services:
-  - type: web
-    name: what-about
-    env: ruby
-    buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec rails s"
-    envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: postgres02
-          property: connectionString
-      - key: RAILS_MASTER_KEY
-        sync: false
-  # - type: redis
-  #   name: redis02
-  #   ipAllowList: []
-  #   plan: free
-  #   maxmemoryPolicy: noeviction
+# services:
+#   - type: web
+#     name: what-about
+#     env: ruby
+#     buildCommand: "./bin/render-build.sh"
+#     startCommand: "bundle exec rails s"
+#     envVars:
+#       - key: DATABASE_URL
+#         fromDatabase:
+#           name: postgres02
+#           property: connectionString
+#       - key: RAILS_MASTER_KEY
+#         sync: false
+#   # - type: redis
+#   #   name: redis02
+#   #   ipAllowList: []
+#   #   plan: free
+#   #   maxmemoryPolicy: noeviction
