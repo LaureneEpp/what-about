@@ -41,13 +41,14 @@ Role.create(
 
 puts "Roles created"
 
-10.times do |count|
-  Category.create(name: Faker::Lorem.words(number: 3, supplemental: true))
+10.times do |i|
+  Category.where(name: "Category #{i}").first_or_create
+  # Category.create(name: Faker::Lorem.words(number: 3, supplemental: true))
 end
 
 puts "Categories created"
 
-8.times do |count|
+10.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -59,7 +60,7 @@ puts "Categories created"
   )
 end
 
-8.times do |count|
+10.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -71,7 +72,7 @@ end
   )
 end
 
-4.times do |count|
+10.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -85,9 +86,9 @@ end
 
 puts "Users created"
 
-25.times do |count|
-  Post.create(
-    title: Faker::Book.title,
+100.times do |i|
+  post = Post.where(title: "Post #{i}").first_or_create
+  post.update(
     subtitle: Faker::Lorem.sentences(number: 2, supplemental: true),
     content: Faker::Lorem.paragraphs(number: 6, supplemental: true),
     category_id: Faker::Number.between(from: 1, to: 10),
@@ -101,7 +102,7 @@ puts "Posts created"
   Comment.create(
     name: Faker::Lorem.sentence,
     body: Faker::Lorem.sentences(number: 5, supplemental: true),
-    post_id: Faker::Number.between(from: 1, to: 25),
+    post_id: Faker::Number.between(from: 1, to: 46),
     user_id: Faker::Number.between(from: 1, to: 20),
   )
 end

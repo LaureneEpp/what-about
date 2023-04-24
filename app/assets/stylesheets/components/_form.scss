@@ -3,8 +3,10 @@
   background-color: $gold;
   border-radius: 5px;
   box-shadow: 5px 5px 5px 5px $black;
-  width: 75%;
+  width: 80%;
   padding: 20px;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 .simple_form {
