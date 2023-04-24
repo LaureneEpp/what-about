@@ -1,9 +1,9 @@
 databases:
   - name: what-about
-    databaseName: what-about
     plan: free
     ipAllowList: []
-    user: what-about
+    # databaseName: what-about
+    # user: what-about
 
 services:
   - type: web
