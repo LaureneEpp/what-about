@@ -41,10 +41,7 @@ Role.create(
 
 puts "Roles created"
 
-10.times do |i|
-  Category.where(name: "Category #{i}").first_or_create
-  # Category.create(name: Faker::Lorem.words(number: 3, supplemental: true))
-end
+10.times { |i| Category.where(name: "Category #{i}").first_or_create }
 
 puts "Categories created"
 
