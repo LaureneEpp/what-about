@@ -5,10 +5,9 @@ class Post < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_one_attached :image do |attachable|
-    attachable.variant :thumb, resize_to_limit: [500, 500]
+    attachable.variant :thumb, resize_to_limit: [200, 150]
   end
   has_many :comments, dependent: :destroy
-  # has_many_attached :pictures
   # has_rich_text :body
 
   validates :title, :subtitle, :content, presence: true
@@ -20,6 +19,8 @@ class Post < ApplicationRecord
   validates :state, inclusion: { in: %w[draft published] }
   # validates :publisher, presence: true, if: :published?
   validates :published_at, presence: true, if: :published?
+
+  after_commit :add_default_image, on: %i[create update]
 
   def published?
     state == "published"
@@ -37,8 +38,19 @@ class Post < ApplicationRecord
     %w[category user]
   end
 
+  def image_thumbnail
+    image.variant(resize_to_limit: [200, 150]).processed
+  end
+
   private
 
-  # def set_defaults
-  # end
+  def add_default_image
+    return if self.image.attached?
+    image.attach(
+      io:
+        File.open(Rails.root.join("app", "assets", "images", "landscape.jpg")),
+      filename: "landscape.jpg",
+      content_type: "image/jpg",
+    )
+  end
 end
