@@ -85,7 +85,7 @@ end
 
 puts "Users created"
 
-25.times do |count|
+100.times do |count|
   Post.create(
     title: Faker::Book.title,
     subtitle: Faker::Lorem.sentences(number: 2, supplemental: true),
@@ -101,7 +101,7 @@ puts "Posts created"
   Comment.create(
     name: Faker::Lorem.sentence,
     body: Faker::Lorem.sentences(number: 5, supplemental: true),
-    post_id: Faker::Number.between(from: 1, to: 25),
+    post_id: Faker::Number.between(from: 1, to: 46),
     user_id: Faker::Number.between(from: 1, to: 20),
   )
 end

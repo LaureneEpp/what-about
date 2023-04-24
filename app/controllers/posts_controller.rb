@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all.order("created_at DESC")
+    @pagy, @posts = pagy((@posts))
   end
 
   # GET /posts/1
