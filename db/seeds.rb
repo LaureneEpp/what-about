@@ -8,13 +8,13 @@
 # require "faker"
 
 #Clean up
-Category.delete_all
-Role.delete_all
-User.delete_all
-Room.delete_all
-Post.delete_all
 Comment.delete_all
 Follow.delete_all
+Category.delete_all
+User.delete_all
+Role.delete_all
+Room.delete_all
+Post.delete_all
 
 puts "Categories deleted"
 puts "Roles deleted"
@@ -46,22 +46,24 @@ puts "Roles created"
 puts "Categories created"
 
 # if Rails.env.production?
-1.times do |i|
+2.times do |i|
   User.create(
-    first_name: "Admin #{i}",
-    last_name: "Admin #{i}",
-    username: "Admin #{i}",
+    first_name: "Admin#{i}",
+    last_name: "Admin#{i}",
+    username: "Admin#{i}",
     email: "admin#{i}@test.org",
     password: "password",
     role_id: 3,
   )
 end
 
+puts "admin created"
+
 10.times do |i|
   User.create(
-    first_name: "Publisher #{i}",
-    last_name: "Publisher #{i}",
-    username: "Publisher #{i}",
+    first_name: "Publisher#{i}",
+    last_name: "Publisher#{i}",
+    username: "Publisher#{i}",
     email: "publisher#{i}@test.org",
     password: "password",
     role_id: 2,
