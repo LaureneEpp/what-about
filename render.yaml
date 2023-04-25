@@ -19,8 +19,8 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
-  # - type: redis
-  #   name: redis02
-  #   ipAllowList: []
-  #   plan: free
-  #   maxmemoryPolicy: noeviction
+  - type: redis
+    name: cache
+    ipAllowList: []
+    plan: free
+    maxmemoryPolicy: allkeys-lfu
