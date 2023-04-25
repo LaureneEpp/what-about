@@ -53,7 +53,7 @@ puts "Categories created"
     username: "Admin#{i}",
     email: "admin#{i}@test.org",
     password: "password",
-    role_id: 3,
+    role_id: "3",
   )
 end
 
@@ -66,7 +66,7 @@ puts "admin created"
     username: "Publisher#{i}",
     email: "publisher#{i}@test.org",
     password: "password",
-    role_id: 2,
+    role_id: "2",
   )
 end
 
