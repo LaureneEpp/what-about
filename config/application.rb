@@ -10,6 +10,7 @@ module WhatAbout
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.hosts = nil
     config.action_dispatch.rescue_responses.merge!(
       "CanCan::AccessDenied" => :unauthorized,
     )

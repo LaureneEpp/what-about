@@ -3,9 +3,7 @@
     <div class="card-image">
         <% if can? :read, post %>
           <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>
-            <% if post.image.attached? %>
-                <%= image_tag (post.image), class:'img-fluid img-thumbnail' %>
-            <% end %>
+                <%= image_tag (post.image), class:'img-fluid img-thumbnail' if post.image.attached? %>
           <% end %>
         <% end %>
       <div class="card-information">

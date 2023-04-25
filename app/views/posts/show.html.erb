@@ -5,12 +5,7 @@
     </div>
     <div class="post-image">
       <div class="post-image-picture">
-      <%= console %>
-        <% if @post.image.present? %>
-          <%= image_tag @post.image.variant(:thumb), class:"img img-fluid" %>
-        <% else %>
-          <%= image_tag("landscape01.jpeg", alt: "default", size: '500x500', class:"img img-fluid") %>
-        <% end %>
+          <%= image_tag (post.image), class:'img-fluid img-thumbnail' if post.image.attached? %>
       </div>
       <div class="post-image-heading">
         <div class="post-title">
