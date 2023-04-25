@@ -5,7 +5,7 @@
     </div>
     <div class="post-image">
       <div class="post-image-picture">
-          <%= image_tag (post.image), class:'img-fluid img-thumbnail' if post.image.attached? %>
+          <%= image_tag (@post.image), class:'img-fluid img-thumbnail' if post.image.attached? %>
       </div>
       <div class="post-image-heading">
         <div class="post-title">
