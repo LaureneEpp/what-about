@@ -11,10 +11,11 @@
 Comment.delete_all
 Follow.delete_all
 Category.delete_all
-User.delete_all
-Role.delete_all
+Message.delete_all
 Room.delete_all
 Post.delete_all
+User.delete_all
+Role.delete_all
 
 puts "Categories deleted"
 puts "Roles deleted"
