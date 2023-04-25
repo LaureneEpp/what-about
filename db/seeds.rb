@@ -71,55 +71,55 @@ if Rails.env.production?
   puts "Users created"
 end
 
-20.times do
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    username: Faker::Internet.username,
-    email: Faker::Internet.email,
-    password: "password",
-    role_id: Faker::Number.between(from: 1, to: 3),
-    bio: Faker::Lorem.paragraphs(number: 1, supplemental: true),
-  )
-end
+# 20.times do
+#   User.create(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     username: Faker::Internet.username,
+#     email: Faker::Internet.email,
+#     password: "password",
+#     role_id: Faker::Number.between(from: 1, to: 3),
+#     bio: Faker::Lorem.paragraphs(number: 1, supplemental: true),
+#   )
+# end
 
-puts "Users created"
+# puts "Users created"
 
-100.times do |i|
-  post = Post.where(title: "Post #{i}").first_or_create
-  post.update(
-    subtitle: Faker::Lorem.sentences(number: 2, supplemental: true),
-    content: Faker::Lorem.paragraphs(number: 6, supplemental: true),
-    category_id: Faker::Number.between(from: 1, to: 10),
-    user_id: Faker::Number.between(from: 1, to: 20),
-  )
-end
+# 100.times do |i|
+#   post = Post.where(title: "Post #{i}").first_or_create
+#   post.update(
+#     subtitle: Faker::Lorem.sentences(number: 2, supplemental: true),
+#     content: Faker::Lorem.paragraphs(number: 6, supplemental: true),
+#     category_id: Faker::Number.between(from: 1, to: 10),
+#     user_id: Faker::Number.between(from: 1, to: 20),
+#   )
+# end
 
-puts "Posts created"
+# puts "Posts created"
 
-30.times do |count|
-  Comment.create(
-    name: Faker::Lorem.sentence,
-    body: Faker::Lorem.sentences(number: 5, supplemental: true),
-    post_id: Faker::Number.between(from: 1, to: 46),
-    user_id: Faker::Number.between(from: 1, to: 20),
-  )
-end
+# 30.times do |count|
+#   Comment.create(
+#     name: Faker::Lorem.sentence,
+#     body: Faker::Lorem.sentences(number: 5, supplemental: true),
+#     post_id: Faker::Number.between(from: 1, to: 46),
+#     user_id: Faker::Number.between(from: 1, to: 20),
+#   )
+# end
 
-puts "Comments created"
+# puts "Comments created"
 
-5.times { Room.create(name: Faker::Lorem.word, is_private: false) }
+# 5.times { Room.create(name: Faker::Lorem.word, is_private: false) }
 
-puts "Rooms created"
+# puts "Rooms created"
 
-15.times do |count|
-  Follow.create(
-    follower_id: Faker::Number.between(from: 1, to: 20),
-    followee_id: Faker::Number.between(from: 1, to: 20),
-  )
-end
+# 15.times do |count|
+#   Follow.create(
+#     follower_id: Faker::Number.between(from: 1, to: 20),
+#     followee_id: Faker::Number.between(from: 1, to: 20),
+#   )
+# end
 
-puts "Follows created"
+# puts "Follows created"
 
 # # puts "\n== Seeding the database with fixtures =="
 # # system("bin/rails db:fixtures:load")
