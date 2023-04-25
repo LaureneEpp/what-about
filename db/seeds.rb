@@ -48,17 +48,14 @@ puts "Roles created"
 puts "Categories created"
 
 # if Rails.env.production?
-2.times do |i|
-  User.create(
-    first_name: "Admin#{i}",
-    last_name: "Admin#{i}",
-    username: "Admin#{i}",
-    email: "admin#{i}@test.org",
-    password: "password",
-    role_id: "3",
-  )
-end
-
+User.create(
+  first_name: "Admin01",
+  last_name: "Admin01",
+  username: "Admin01",
+  email: "admin01@test.org",
+  password: "password",
+  role_id: 3,
+)
 puts "admin created"
 
 10.times do |i|
@@ -68,7 +65,7 @@ puts "admin created"
     username: "Publisher#{i}",
     email: "publisher#{i}@test.org",
     password: "password",
-    role_id: "2",
+    role_id: 2,
   )
 end
 
