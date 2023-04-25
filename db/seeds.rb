@@ -45,7 +45,7 @@ puts "Roles created"
 
 puts "Categories created"
 
-if Rails.env.production?
+# if Rails.env.production?
   1.times do |i|
     User.create(
       first_name: "Admin #{i}",
@@ -55,7 +55,7 @@ if Rails.env.production?
       password: "password",
       role_id: 3,
     )
-  end
+  # end
 
   10.times do |i|
     User.create(
