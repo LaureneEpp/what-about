@@ -10,13 +10,13 @@
 #Clean up
 Comment.delete_all
 Follow.delete_all
-Category.delete_all
 Message.delete_all
 Participant.delete_all
 Room.delete_all
 Post.delete_all
 User.delete_all
 Role.delete_all
+Category.delete_all
 
 puts "Categories deleted"
 puts "Roles deleted"
