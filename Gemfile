@@ -32,7 +32,8 @@ gem "cssbundling-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-gem "redis", "~> 4.0"
+gem "redis"
+gem 'hiredis'
 
 # Use simple form
 gem 'simple_form'

@@ -133,6 +133,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    hiredis (0.6.3)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -311,6 +312,7 @@ DEPENDENCIES
   debug
   devise!
   friendly_id (~> 5.4.0)
+  hiredis
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
@@ -320,7 +322,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4)
   ransack
-  redis (~> 4.0)
+  redis
   sassc-rails
   selenium-webdriver
   simple_form
