@@ -90,17 +90,7 @@ puts "Standard Users created"
     title: "Post#{i}",
     subtitle: "Nihil molestiae consequatur, vel illum qui dolorem eum",
     content:
-      "Duis aute irure dolor in reprehenderit in voluptate velit. Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.
-
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Fugiat quo voluptas nulla pariatur? Itaque earum rerum hic tenetur a sapiente delectus. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.
-    
-    Architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo. Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-    
-    Corrupti quos dolores et quas molestias excepturi sint occaecati. Fugiat quo voluptas nulla pariatur? Nihil molestiae consequatur, vel illum qui dolorem eum. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
-    
-    Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Architecto beatae vitae dicta sunt explicabo. Cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia.
-    
-    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Animi, id est laborum et dolorum fuga.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit. Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat. Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Fugiat quo voluptas nulla pariatur? Itaque earum rerum hic tenetur a sapiente delectus. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque. Architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo. Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Corrupti quos dolores et quas molestias excepturi sint occaecati. Fugiat quo voluptas nulla pariatur? Nihil molestiae consequatur, vel illum qui dolorem eum. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Architecto beatae vitae dicta sunt explicabo. Cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Animi, id est laborum et dolorum fuga.",
     category_id: rand(1..10),
     user_id: rand(1..20),
   )
