@@ -37,13 +37,14 @@ Role.create(
     description: "Can read and create posts. Can update and destroy own posts",
   },
 )
+
 Role.create(
   { name: 2, description: "Can perform any CRUD operation on any resource" },
 )
 
 puts "Roles created"
 
-10.times { |i| Category.where(name: "Category #{i}").first_or_create }
+10.times { |i| Category.create(name: "Category #{i}") }
 
 puts "Categories created"
 
@@ -69,7 +70,63 @@ puts "admin created"
   )
 end
 
-puts "Users created"
+puts "Publishers created"
+
+9.times do |i|
+  User.create(
+    first_name: "Standard#{i}",
+    last_name: "Standard#{i}",
+    username: "Standard#{i}",
+    email: "standard#{i}@test.org",
+    password: "password",
+    role_id: 1,
+  )
+end
+
+puts "Standard Users created"
+
+30.times do |i|
+  Post.create(
+    title: "Post#{i}",
+    subtitle: "Nihil molestiae consequatur, vel illum qui dolorem eum",
+    content:
+      "Duis aute irure dolor in reprehenderit in voluptate velit. Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.
+
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Fugiat quo voluptas nulla pariatur? Itaque earum rerum hic tenetur a sapiente delectus. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.
+    
+    Architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo. Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+    
+    Corrupti quos dolores et quas molestias excepturi sint occaecati. Fugiat quo voluptas nulla pariatur? Nihil molestiae consequatur, vel illum qui dolorem eum. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+    
+    Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Architecto beatae vitae dicta sunt explicabo. Cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia.
+    
+    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Animi, id est laborum et dolorum fuga.",
+    category_id: rand(1..10),
+    user_id: rand(1..20),
+  )
+end
+
+puts "Posts created"
+
+5.times { |i| Room.create(name: "Room#{i}", is_private: false) }
+
+puts "Rooms created"
+
+30.times do |i|
+  Comment.create(
+    name: "Comment#{i}",
+    body:
+      "Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Duis aute irure dolor in reprehenderit in voluptate velit. Totam rem aperiam. Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.",
+    post_id: rand(1..30),
+    user_id: rand(1..20),
+  )
+end
+
+puts "Comments created"
+
+15.times { { followee_id: rand(1..20), follower_id: rand(1..20) } }
+
+puts "Follows created"
 
 # 20.times do
 #   User.create(
