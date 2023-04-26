@@ -3,9 +3,10 @@ const searchForm = document.getElementById('post_search')
 const x = window.matchMedia("(min-width: 991px)")
 const navbar = document.querySelector('.navbar')
 const navItem = document.querySelectorAll('.nav-item')
+const adminNavItem = document.querySelector('.nav-link')
 
 function hideForm() {
-    if (x.matches) {
+    if (adminNavItem.classList.contains('admin')) {
         searchForm.classList.replace("d-flex", "d-none");;
     }
 }
