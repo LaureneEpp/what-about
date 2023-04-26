@@ -85,6 +85,10 @@ end
 
 puts "Standard Users created"
 
+5.times { |i| Room.create(name: "Room#{i}", is_private: false) }
+
+puts "Rooms created"
+
 30.times do |i|
   Post.create(
     title: "Post#{i}",
@@ -97,10 +101,6 @@ puts "Standard Users created"
 end
 
 puts "Posts created"
-
-5.times { |i| Room.create(name: "Room#{i}", is_private: false) }
-
-puts "Rooms created"
 
 30.times do |i|
   Comment.create(
