@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     # @users = User.where(role_id: 2)
-    @users = User.all
+    @users = User.all.excluding(current_user)
   end
 
   def show
