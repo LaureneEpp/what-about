@@ -6,12 +6,12 @@
       <% end %>
       </h4>
         <div class="comment-actions">
-          <% if can? :update, comment %>
+          <% if current_user.admin? || comment.user? %>
             <%= link_to edit_post_comment_path(post, comment), class:"icon-edit icon-comment-action" do %>
               <i class="bi bi-pencil-square"></i>
             <% end %>
           <% end %>
-          <% if can? :destroy, comment %>
+          <% if current_user.admin? || comment.user? %>
             <%= button_to post_comment_path(post, comment), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class:"icon-delete icon-comment-action" do %>
               <i class="bi bi-x-circle-fill"></i>
             <% end %>

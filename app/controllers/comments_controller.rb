@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  load_and_authorize_resource :post
-  load_and_authorize_resource :comment, through: :post
+  # load_and_authorize_resource :post
+  # load_and_authorize_resource :comment, through: :post
   before_action :set_post
   before_action :set_comment, only: %i[show edit update destroy]
 
