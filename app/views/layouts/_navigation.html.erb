@@ -8,22 +8,21 @@
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <% if current_user.admin? %>
-            <%= link_to "Admin Panel", admin_root_path, class:"nav-item nav-link admin fs-4 me-2" %>
+            <%= link_to "Admin Panel", admin_root_path, id:"btn#admin",class:"nav-item nav-link admin me-2" %>
           <% end %>
-          <%= link_to "Posts", posts_path, class: "nav-item nav-link fs-4 me-2" %>
-          <%= link_to "Categories", categories_path, class: "nav-item fs-4 nav-link me-2" %>
-          <%= link_to 'Chatroom', rooms_path, class: "nav-item nav-link fs-4 me-2"  %>
-          <%= link_to "People", users_path, class: "nav-item nav-link fs-4 me-2" %>
+          <%= link_to "Posts", posts_path, class: "nav-item nav-link me-2" %>
+          <%= link_to "Categories", categories_path, class: "nav-item nav-link me-2" %>
+          <%= link_to 'Chatroom', rooms_path, class: "nav-item nav-link me-2"  %>
+          <%= link_to "People", users_path, class: "nav-item nav-link me-2" %>
           <%= render 'search/form' %>
         </ul>   
       <% end %>
       <ul class="navbar-nav mb-2 mb-lg-0">
         <% if user_signed_in? %>
-          <%= link_to current_user.username, account_path(current_user), class: "nav-item nav-link fs-4" %>
-          <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "nav-item nav-link fs-4" do %>
+          <%= link_to current_user.username, account_path(current_user), class: "nav-item nav-link " %>
+          <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "nav-item nav-link" do %>
             <i class="bi bi-box-arrow-right"></i>
           <% end %>
-          
         <% end %>
       </ul>
     </div>

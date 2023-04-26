@@ -6,5 +6,6 @@ import "trix"
 import "@rails/actiontext"
 
 import animatedLandingPage from './animatedLandingPage'
+import  hiddenFeature from './hiddenFeature'
 
-console.log('hello test ')
+// console.log('hello test ')

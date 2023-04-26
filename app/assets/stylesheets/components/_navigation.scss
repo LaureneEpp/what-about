@@ -23,6 +23,9 @@
   }
 
   @media (max-width: 991px) {
+    a.nav-link {
+      font-size: large;
+    }
     #navbarText {
       background-color: #004643;
       border-radius: 5px;
@@ -30,12 +33,24 @@
       padding: inherit;
       margin-top: 10px;
     }
+    .admin {
+      background-color: transparent;
+      color: $red-patone;
+    }
   }
 
   @media (min-width: 991px) {
     #navbarText {
       display: flex;
       justify-content: flex-end;
+    }
+
+    a.nav-link {
+      font-size: x-large;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
