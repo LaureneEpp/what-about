@@ -23,7 +23,7 @@ class Ability
       can %i[read create], Post
       # can %i[update destroy], Post, user: user
       can :update, Post, user: user
-      can :destory, Post, user: user
+      can :destroy, Post, user: user
       can :manage, Comment, post: { user_id: user.id }
     elsif user.standard?
       can :read, Post #all users (not logged in included) can read all posts
