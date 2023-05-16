@@ -2,9 +2,11 @@
   <div class="post-content">
     <div class="post-category">
       <h1><%= @post.category.name %></h1>
+      <%= console %>
     </div>
     <div class="post-image">
       <div class="post-image-picture">
+   
           <%= image_tag (@post.image), class:'img-fluid img-thumbnail' if @post.image.attached? %>
       </div>
       <div class="post-image-heading">
